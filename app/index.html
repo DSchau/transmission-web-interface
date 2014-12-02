@@ -20,15 +20,16 @@
   <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
   <!-- Add New Bower Component JS Above -->
 
-  <nav headroom classes="app.navClasses">
+  <nav headroom classes="app.navClasses" class="noselect">
   	<ul>
-  		<li class="left"><a class="icon new" title="Open Torrent"></a></li>
-      <li class="centered"><a class="icon pause" title="Pause Torrent(s)"></a></li>
-      <li class="centered"><a class="icon resume" title="Resume Torrent(s)"></a></li>
-      <li class="centered"><a class="icon remove" title="Remove Torrent(s)"></a></li>
-      <li class="right"><a class="icon search" title="Filter Torrents" ng-click="app.showFilter = !app.showFilter;"></a></li>
+  		<li class="left"><a class="icon new" title="Open Torrent" tabindex="1"></a></li>
+      <li class="centered"><a class="icon pause" title="Pause Torrent(s)" tabindex="10"></a></li>
+      <li class="centered"><a class="icon resume" title="Resume Torrent(s)" tabindex="20"></a></li>
+      <li class="centered"><a class="icon remove" title="Remove Torrent(s)" tabindex="30"></a></li>
+      <li class="right"><a class="icon search" title="Filter Torrents"  tabindex="40" ng-click="app.showFilter = !app.showFilter;"></a></li>
   	</ul>
     <div class="filter" ng-class="{'show-filter': app.showFilter}">
+      <select ng-model="app.filter.status" ng-options="status as status.label for status in app.statuses track by status.label" ng-init="app.filter.status = app.statuses[0]"></select>
       <input type="text" ng-model="app.filter.title" placeholder="Filter" has-focus="app.showFilter">
     </div>
   </nav>

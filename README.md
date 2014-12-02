@@ -21,11 +21,11 @@
 8. [ ] Integrate DL/UL stats onto list item
 9. [ ] Offer an alternate view with more detail (cards?)
 10. [ ] Get click/dbl-click working on list item
-11. [ ] Update toolbar with more filtering functionality
+11. [X] Update toolbar with more filtering functionality
 12. [ ] Tighten up animations
  - The animations on the navbar are nice, but could be smoother, better
 13. [ ] Use an `$httpInterceptor` to handle errors
 14. [ ] Use a `loadingInterceptor` to show loading status
  - I'd like this to be "inline" with the content
-15. [ ] Add `noselect` class to navbar elements
-16. [ ] Get `has-focus` directive working
+15. [X] Add `noselect` class to navbar elements
+16. [X] Get `has-focus` directive working

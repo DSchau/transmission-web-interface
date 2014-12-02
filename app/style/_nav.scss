@@ -3,10 +3,12 @@ $header-border-color: darken($header-bg-color, 15%);
 $header-height: $header-height !default;
 $header-z: 2;
 
+$header-opacity: 0.925;
+
 $scale-factor: 0.75;
 
 nav {
-  background-color: $header-bg-color;
+  background-color: rgba($header-bg-color, $header-opacity);
   border-bottom: 1px solid $header-border-color;
   height: $header-height;
   width: 100%;
@@ -31,23 +33,13 @@ nav {
         margin-right: 2rem;
         padding-top: 0.15rem;
       }
-      a.icon {
-        cursor: pointer;
-        opacity: 0.6;
-        &:hover {
-          opacity: 0.75;
-        }
-        &:active {
-          opacity: 1;
-        }
-      }
     }
   }
   .filter {
     &.show-filter {
       max-height: $header-height * $scale-factor;
       border-bottom: 1px solid darken($header-bg-color, 25%);
-      input {
+      input, select {
         visibility: visible;
       }
     }
@@ -56,16 +48,29 @@ nav {
     width: 100%;
     padding: 0 0.5rem;
     max-height: 0;
-    background-color: darken($header-bg-color, 5%);
+    background-color: $header-bg-color;
     box-sizing: border-box;
+    width: 100%;
+    border-collapse: separate;
+    select, input {
+      display: inline-block;
+    }
     input {
-      width: 100%;
       margin: 0.25rem 0;
+      margin-left: 0.5rem;
+      min-width: 150px;
       box-sizing: border-box;
       outline: none;
       border: 1px solid #CCC;
       border-radius: 0.25rem;
       padding: 0.3125rem;
+      visibility: hidden;
+      &:focus {
+        border-color: $focus-border-color;
+        box-shadow: $focus-box-shadow-small;
+      }
+    }
+    select {
       visibility: hidden;
     }
   }
@@ -87,10 +92,10 @@ nav {
       max-height: 16px;
     }
     .filter {
-      top: $mini-height;
+      top: $mini-height + 1;
     }
     ~ .container.has-filter {
-      top: $mini-height * 2;
+      top: ($mini-height * 2) + 1;
     }
   }
   ~ .container.has-filter {

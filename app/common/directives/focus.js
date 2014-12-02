@@ -1,15 +1,16 @@
 angular.module('transmission.common.directives.focus', [])
-.directive('hasFocus', function() {
+.directive('hasFocus', function($timeout) {
   return {
     restrict: 'A',
     scope: {
       focus: '=hasFocus'
     },
     link: function(scope, element) {
-      console.log('hel');
       scope.$watch('focus', function(hasFocus) {
         if ( hasFocus ) {
-          element[0].focus();
+          $timeout(function() {
+            element[0].focus();
+          });
         }
       });
     }
