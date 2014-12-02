@@ -30,7 +30,7 @@
   	</ul>
     <div class="filter" ng-class="{'show-filter': app.showFilter}">
       <select ng-model="app.filter.status" ng-options="status as status.label for status in app.statuses track by status.label" ng-init="app.filter.status = app.statuses[0]"></select>
-      <input type="text" ng-model="app.filter.title" placeholder="Filter" has-focus="app.showFilter">
+      <input type="text" ng-model="app.filter.title" placeholder="Filter title..." has-focus="app.showFilter">
     </div>
   </nav>
 

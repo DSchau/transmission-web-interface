@@ -1,9 +1,8 @@
 $header-bg-color: darken(#FFF, 5%);
 $header-border-color: darken($header-bg-color, 15%);
+$header-opacity: 0.925;
 $header-height: $header-height !default;
 $header-z: 2;
-
-$header-opacity: 0.925;
 
 $scale-factor: 0.75;
 
@@ -30,8 +29,7 @@ nav {
         float: right;
       }
       &.centered {
-        margin-right: 2rem;
-        padding-top: 0.15rem;
+        margin: 0 1rem;
       }
     }
   }
@@ -88,8 +86,15 @@ nav {
   }
   &.nav-down {
     max-height: $mini-height;
+    ul {
+      padding-top: 0.3rem;
+    }
     .icon {
       max-height: 16px;
+      &.resume {
+        position: relative;
+        top: 1px;
+      }
     }
     .filter {
       top: $mini-height + 1;

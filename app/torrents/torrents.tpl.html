@@ -1,7 +1,7 @@
 <div class="row">
   <div class="column">
     <ul class="torrent-list">
-      <li class="torrent" ng-repeat="torrent in torrents.torrentList | filter:app.filter" ng-click="torrents.selectTorrent(torrent, $index, $event);">
+      <li class="torrent" ng-repeat="torrent in torrents.torrentList" ng-click="torrents.selectTorrent(torrent, $index, $event);">
       <!-- <li class="torrent" ng-repeat="torrent in ( torrents = (torrents.torrentList | filter:app.filter) )" ng-click="torrents.selectTorrent(torrent, $index, $event);"> -->
         <a ng-bind="torrent.title" class="noselect" ng-class="{ 'selected': torrent.selected }"></a>
       </li>
