@@ -1,0 +1,29 @@
+{
+  "generator-cg-angular": {
+    "uirouter": false,
+    "partialDirectory": "partial/",
+    "modalDirectory": "partial/",
+    "directiveDirectory": "directive/",
+    "filterDirectory": "filter/",
+    "serviceDirectory": "service/",
+    "inject": {
+      "js": {
+        "file": "index.html",
+        "marker": "<!-- Add New Component JS Above -->",
+        "template": "<script src=\"<%= filename %>\"></script>"
+      },
+      "scss": {
+        "relativeToModule": true,
+        "file": "<%= module %>.scss",
+        "marker": "/* Add Component SCSS Above */",
+        "template": "@import \"<%= filename %>\";"
+      }
+    },
+    "modules": [
+      {
+        "name": "torrents",
+        "file": "torrents/_torrents.js"
+      }
+    ]
+  }
+}

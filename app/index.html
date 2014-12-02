@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="transmission">
+<head>
+  <title>Transmission Web Client</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+  <link href="app/app.scss" type="text/css" rel="stylesheet/scss">
+</head>
+<body>
+
+  <!-- Livereload script for development only (stripped during dist build) -->
+  <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
+
+  <!-- JS from Bower Components -->
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <!-- Add New Bower Component JS Above -->
+
+  <nav affix>
+  	<ul>
+  		<li class="left"><a class="icon new" title="Open Torrent"></a></li>
+      <li class="centered"><a class="icon pause" title="Pause Torrent(s)"></a></li>
+      <li class="centered"><a class="icon resume" title="Resume Torrent(s)"></a></li>
+      <li class="centered"><a class="icon remove" title="Remove Torrent(s)"></a></li>
+      <li class="right"><a class="icon search" title="Filter Torrents"></a></li>
+  	</ul>
+  </nav>
+
+  <div id="content" class="container">
+    <div class="row">
+      <div ng-view>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
