@@ -1,6 +1,6 @@
 $header-bg-color: darken(#FFF, 5%);
-$header-border-color: darken($header-bg-color, 10%);
-$header-height: 44px;
+$header-border-color: darken($header-bg-color, 15%);
+$header-height: $header-height !default;
 $header-z: 2;
 
 $scale-factor: 0.75;

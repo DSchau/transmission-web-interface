@@ -1,6 +1,13 @@
+$header-height: 44px;
+
 body {
   margin: 0;
   font-family: sans-serif;
+}
+
+.container {
+  position: relative;
+  top: $header-height;
 }
 
 .noselect {
