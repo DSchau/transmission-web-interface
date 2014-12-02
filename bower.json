@@ -13,7 +13,8 @@
     "angular": "~1.2",
     "angular-route": "~1.2",
     "angular-mocks": "~1.2",
-    "components-foundation": "~5.4.6"
+    "components-foundation": "~5.4.6",
+    "headroom.js": "https://github.com/WickyNilliams/headroom.js.git#~0.7.0"
   },
   "resolutions": {
     "jquery": ">= 2.1.0"

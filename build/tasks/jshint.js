@@ -20,10 +20,6 @@ var createFolderGlobs2 = function(fileTypePatterns) {
     .concat(fileTypePatterns);
 };
 
-// var createFolderGlobs = require('custom/createFolderGlobs');
-
-// console.log(createFolderGlobs);
-
 module.exports = {
   main: {
     options: {

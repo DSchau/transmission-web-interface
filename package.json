@@ -1,6 +1,11 @@
 {
   "name": "transmission",
   "version": "1.0.0",
+  "description": "Mobile-first web interface for the Transmission Web client",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DSchau/transmission.git"
+  },
   "devDependencies": {
     "grunt": "~0.4",
     "grunt-angular-templates": "~0.5",

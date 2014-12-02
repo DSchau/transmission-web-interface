@@ -1,6 +1,4 @@
 module.exports = function(grunt) {
-  console.log(module.exports.createFolderGlobs);
-  
   grunt.event.on('watch', function(action, filepath) {
     var tasksToRun = [];
 
