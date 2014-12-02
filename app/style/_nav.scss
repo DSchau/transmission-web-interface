@@ -1,0 +1,60 @@
+$header-bg-color: darken(#FFF, 5%);
+$header-border-color: darken($header-bg-color, 10%);
+$header-height: 44px;
+$header-z: 2;
+
+$scale-factor: 0.75;
+
+nav {
+  background-color: $header-bg-color;
+  border-bottom: 1px solid $header-border-color;
+  height: $header-height;
+  width: 100%;
+  z-index: $header-z;
+  ul {
+    margin: 0;
+    padding: 0 0.5rem;
+    padding-top: 0.5rem;
+    text-align: center;
+    li {
+      list-style-type: none;
+      display: inline-block;
+      &.left {
+        float: left;
+      }
+      &.right {
+        float: right;
+      }
+      &.centered {
+        margin-right: 2rem;
+        padding-top: 0.15rem;
+      }
+      a.icon {
+        cursor: pointer;
+        opacity: 0.6;
+        &:hover {
+          opacity: 0.75;
+        }
+        &:active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.nav {
+  transition: max-height 200ms linear;
+  transform-origin: top;
+  position: fixed;
+  top: 0;
+  &.nav-up {
+    max-height: $header-height;
+  }
+  &.nav-down {
+    max-height: $header-height * $scale-factor;
+    .icon {
+      max-height: 16px;
+    }
+  }
+}

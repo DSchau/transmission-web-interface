@@ -6,18 +6,20 @@
 	<meta charset="utf-8">
   <link href="app/app.scss" type="text/css" rel="stylesheet/scss">
 </head>
-<body>
+<body ng-controller="AppCtrl as app">
 
   <!-- Livereload script for development only (stripped during dist build) -->
   <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
 
   <!-- JS from Bower Components -->
   <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/headroom.js/dist/headroom.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
   <!-- Add New Bower Component JS Above -->
 
-  <nav affix>
+  <nav headroom classes="app.navClasses">
   	<ul>
   		<li class="left"><a class="icon new" title="Open Torrent"></a></li>
       <li class="centered"><a class="icon pause" title="Pause Torrent(s)"></a></li>

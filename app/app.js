@@ -1,5 +1,6 @@
 angular.module('transmission', [
   'ngRoute',
+  'headroom',
   'transmission.torrents',
   'transmission.common'
 ])
