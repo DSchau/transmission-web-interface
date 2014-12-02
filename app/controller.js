@@ -8,4 +8,6 @@ angular.module('transmission')
 })
 .controller('AppCtrl', function(NAV_CLASSES) {
 	this.navClasses = NAV_CLASSES;
+
+  this.showFilter = false;
 });

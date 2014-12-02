@@ -1,6 +1,7 @@
 angular.module('transmission.torrents', [
   'transmission.torrents.services',
-  'transmission.common.services.transmission'
+  'transmission.torrents.filters',
+  'transmission.common.constants',
 ])
 .constant('TORRENTS', [
   { 
@@ -1281,10 +1282,10 @@ angular.module('transmission.torrents', [
     templateUrl: 'torrents/torrents.tpl.html',
     controller: 'TorrentsCtrl as torrents',
     resolve: {
-      torrents: function(transmissionRPC, TORRENTS) {
-        transmissionRPC.torrents({}, function(response) {
-          console.log(response);
-        });
+      torrents: function(transmissionRPC, GET_TORRENTS, TORRENTS) {
+        // transmissionRPC.torrents(GET_TORRENTS, function(response) {
+        //   console.log(response);
+        // });
         return TORRENTS;
       }
     }

@@ -8,6 +8,9 @@ body {
 .container {
   position: relative;
   top: $header-height;
+  &.has-filter {
+    top: $header-height + 1;
+  }
 }
 
 .noselect {

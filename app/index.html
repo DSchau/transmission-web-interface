@@ -26,11 +26,14 @@
       <li class="centered"><a class="icon pause" title="Pause Torrent(s)"></a></li>
       <li class="centered"><a class="icon resume" title="Resume Torrent(s)"></a></li>
       <li class="centered"><a class="icon remove" title="Remove Torrent(s)"></a></li>
-      <li class="right"><a class="icon search" title="Filter Torrents"></a></li>
+      <li class="right"><a class="icon search" title="Filter Torrents" ng-click="app.showFilter = !app.showFilter;"></a></li>
   	</ul>
+    <div class="filter" ng-class="{'show-filter': app.showFilter}">
+      <input type="text" ng-model="app.filter.title" placeholder="Filter" has-focus="app.showFilter">
+    </div>
   </nav>
 
-  <div id="content" class="container">
+  <div id="content" class="container" ng-class="{ 'has-filter': app.showFilter }">
     <div class="row">
       <div ng-view>
       </div>

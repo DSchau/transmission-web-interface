@@ -11,8 +11,4 @@ angular.module('transmission.torrents')
     torrent.selected = true;
     keyboard.index = index;
   };
-
-  this.showInfo = function(torrent, index) {
-    console.log('dbl click');
-  };
 });

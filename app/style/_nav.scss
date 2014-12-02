@@ -10,6 +10,8 @@ nav {
   border-bottom: 1px solid $header-border-color;
   height: $header-height;
   width: 100%;
+  position: fixed;
+  top: 0;
   z-index: $header-z;
   ul {
     margin: 0;
@@ -41,20 +43,57 @@ nav {
       }
     }
   }
+  .filter {
+    &.show-filter {
+      max-height: $header-height * $scale-factor;
+      border-bottom: 1px solid darken($header-bg-color, 25%);
+      input {
+        visibility: visible;
+      }
+    }
+    position: fixed;
+    top: $header-height+1;
+    width: 100%;
+    padding: 0 0.5rem;
+    max-height: 0;
+    background-color: darken($header-bg-color, 5%);
+    box-sizing: border-box;
+    input {
+      width: 100%;
+      margin: 0.25rem 0;
+      box-sizing: border-box;
+      outline: none;
+      border: 1px solid #CCC;
+      border-radius: 0.25rem;
+      padding: 0.3125rem;
+      visibility: hidden;
+    }
+  }
+}
+
+.nav, .filter {
+  transition: max-height 125ms linear;
+  transform-origin: top;
 }
 
 .nav {
-  transition: max-height 200ms linear;
-  transform-origin: top;
-  position: fixed;
-  top: 0;
+  $mini-height: $header-height * $scale-factor;
   &.nav-up {
     max-height: $header-height;
   }
   &.nav-down {
-    max-height: $header-height * $scale-factor;
+    max-height: $mini-height;
     .icon {
       max-height: 16px;
     }
+    .filter {
+      top: $mini-height;
+    }
+    ~ .container.has-filter {
+      top: $mini-height * 2;
+    }
+  }
+  ~ .container.has-filter {
+    top: $header-height + $mini-height;
   }
 }
