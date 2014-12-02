@@ -28,3 +28,4 @@
 14. [ ] Use a `loadingInterceptor` to show loading status
  - I'd like this to be "inline" with the content
 15. [ ] Add `noselect` class to navbar elements
+16. [ ] Get `has-focus` directive working
