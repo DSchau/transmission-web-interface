@@ -1,0 +1,8 @@
+$focus-border-color: #66afe9;
+$focus-box-shadow: 0 0 8px rgba(darken(rgb(102,175,233), 15%),1);
+$focus-box-shadow-small: inset 0 1px 1px rgba(0,0,0,.075),0 0 4px rgba(102,175,233,.6);
+
+a:focus {
+  box-shadow: $focus-box-shadow;
+  outline: none;
+}
