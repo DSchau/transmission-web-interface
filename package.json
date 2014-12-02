@@ -9,6 +9,7 @@
   "devDependencies": {
     "grunt": "~0.4",
     "grunt-angular-templates": "~0.5",
+    "grunt-autoprefixer": "^2.0.0",
     "grunt-available-tasks": "^0.5.2",
     "grunt-browser-output": "0.1.0",
     "grunt-contrib-clean": "~0.5",

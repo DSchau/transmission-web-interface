@@ -49,6 +49,7 @@ module.exports = function(grunt) {
         'jshint',
         'clean:before',
         'sass',
+        'autoprefixer',
         'dom_munger',
         'ngtemplates',
         'cssmin',
