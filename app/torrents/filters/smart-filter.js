@@ -1,6 +1,6 @@
 angular.module('transmission.torrents.filters.smartFilter', [])
 .filter('smartFilter', function() {
-  return function(arr, filter) {
+  var smartFilter = function(arr, filter) {
     if ( filter && arr ) {
       var expressions = {},
         filteredArr = [];
@@ -25,4 +25,6 @@ angular.module('transmission.torrents.filters.smartFilter', [])
     }
     return arr;
   };
+  
+  return smartFilter;
 });

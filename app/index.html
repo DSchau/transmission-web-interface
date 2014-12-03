@@ -28,9 +28,16 @@
       <li class="centered"><a class="icon remove" title="Remove Torrent(s)" tabindex="30"></a></li>
       <li class="right"><a class="icon search" title="Filter Torrents"  tabindex="40" ng-click="app.showFilter = !app.showFilter;"></a></li>
   	</ul>
-    <div class="filter" ng-class="{'show-filter': app.showFilter}">
-      <select ng-model="app.filter.status" ng-options="status as status.label for status in app.statuses track by status.label" ng-init="app.filter.status = app.statuses[0]"></select>
-      <input type="text" ng-model="app.filter.title" placeholder="Filter title..." has-focus="app.showFilter">
+    <div class="filter row" ng-class="{'show-filter': app.showFilter}">
+      <div class="small-6 medium-4 column cell">
+        <select ng-model="app.filter.status" ng-options="status as status.label for status in app.statuses track by status.label" ng-init="app.filter.status = app.statuses[0]"></select>
+      </div>
+      <div class="small-6 medium-4 column cell no-pad">
+        <h6><strong>DL: </strong>4.2 MB/s <strong>UL: </strong> 2.1 MB/s</h6>
+      </div>
+      <div class="medium-4 column cell">
+        <input type="text" ng-model="app.filter.title" placeholder="Filter title..." has-focus="app.showFilter">
+      </div>
     </div>
   </nav>
 
@@ -40,6 +47,17 @@
       </div>
     </div>
   </div>
+
+  <footer>
+    <div class="row">
+      <div class="small-4 column">
+        <a class="icon settings"></a>
+      </div>
+      <div class="small-4 column end">
+        <h6><strong>429</strong> transfers</h6>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

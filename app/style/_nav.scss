@@ -37,9 +37,18 @@ nav {
     &.show-filter {
       max-height: $header-height * $scale-factor;
       border-bottom: 1px solid darken($header-bg-color, 25%);
-      input, select {
+      .cell {
         visibility: visible;
+        padding: 0.25rem 0;
+        &.no-pad {
+          padding: 0;
+        }
       }
+    }
+    .cell {
+      visibility: hidden;
+      padding-left: 0;
+      padding-right: 0;
     }
     position: fixed;
     top: $header-height+1;
@@ -48,28 +57,27 @@ nav {
     max-height: 0;
     background-color: $header-bg-color;
     box-sizing: border-box;
-    width: 100%;
-    border-collapse: separate;
-    select, input {
-      display: inline-block;
-    }
     input {
-      margin: 0.25rem 0;
-      margin-left: 0.5rem;
-      min-width: 150px;
       box-sizing: border-box;
       outline: none;
       border: 1px solid #CCC;
       border-radius: 0.25rem;
       padding: 0.3125rem;
-      visibility: hidden;
       &:focus {
         border-color: $focus-border-color;
         box-shadow: $focus-box-shadow-small;
       }
     }
-    select {
-      visibility: hidden;
+    select, input, h6 {
+      margin: 0;
+      width: 100%;
+      padding-top: 0.25rem;
+    }
+    h6 {
+      text-align: center;
+      font-weight: normal;
+      display: block;
+      padding-top: 0.15rem;
     }
   }
 }

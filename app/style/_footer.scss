@@ -1,0 +1,20 @@
+$footer-height: $header-height * $scale-factor;
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: $footer-height;
+  width: 100%;
+  background-color: rgba($header-bg-color, $header-opacity);
+  border-top: 1px solid $header-border-color;
+  h6 {
+    text-align: center;
+    margin: 0;
+    line-height: $footer-height;
+    font-weight: normal;
+  }
+  .column {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

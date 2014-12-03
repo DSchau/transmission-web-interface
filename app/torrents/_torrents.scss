@@ -6,6 +6,11 @@ $stripe-border-color: darken($border-color, 1.25%);
 
 $font-size: 0.9rem;
 
+.column.torrents {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 .torrent-list {
   margin: 0;
   padding: 0;

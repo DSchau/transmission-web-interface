@@ -61,6 +61,13 @@ module.exports = function(grunt) {
         'clean:after'
       ],
     },
+    'icons': {
+      description: 'Generate base-64 SVG and PNGs from SVG icons',
+      tasks: [
+        'svgmin',
+        'grunticon'
+      ]
+    },
     'serve': {
       description: 'Build and launch a local node server for local development',
       tasks: [
