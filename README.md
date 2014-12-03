@@ -4,30 +4,30 @@
 
 ### To-do
 
-1. [ ] Integrate with transmission-rpc REST API
+- [ ] Integrate with transmission-rpc REST API
  * Use an angular factory to do this (already started)
-2. [x] Show status indicators on list item (% downloaded, completed, seeding/downloading, etc.)
-3. [ ] Fix keyboard service; get working with `Command`, `Ctrl`, & `Shift`
-4. [ ] Think of a better UI for specific torrent info (modal isn't best!)
-5. [x] When search icon is active, swap out the search icon to make it more visible search is active
- - Probably use a blue, "glowing" icon for this
-6. [x] Add a "footer" with various functionality, such as:
- * # of transfers
- * DL/UL status
- * Settings icon (launch a modal?)
-7. [ ] Integrate a modal service
+- [ ] Fix keyboard service; get working with `Command`, `Ctrl`, & `Shift`
+- [ ] Think of a better UI for specific torrent info (modal isn't best!)
+ - # of transfers
+ - DL/UL status
+ - Settings icon (launch a modal?)
+- [ ] Integrate a modal service
  - Might create my own; use an existing one
-8. [ ] Integrate DL/UL stats onto list item
-9. [ ] Offer an alternate view with more detail (cards?)
-10. [ ] Get click/dbl-click working on list item
-11. [X] Update toolbar with more filtering functionality
-12. [ ] Tighten up animations
+- [ ] Integrate DL/UL stats onto list item
+- [ ] Offer an alternate view with more detail (cards?)
+- [ ] Get click/dbl-click working on list item
+- [ ] Tighten up animations
  - The animations on the navbar are nice, but could be smoother, better
-13. [ ] Use an `$httpInterceptor` to handle errors
-14. [ ] Use a `loadingInterceptor` to show loading status
+- [ ] Use an `$httpInterceptor` to handle errors
+- [ ] Use a `loadingInterceptor` to show loading status
  - I'd like this to be "inline" with the content
-15. [X] Add `noselect` class to navbar elements
-16. [X] Get `has-focus` directive working
-17. [ ] Figure out why mobile has extra padding to right (causing scrollbar)
-18. [ ] Optimize "search active" icon
-19. [ ] Get `smart-filter` working again
+- [ ] Figure out why mobile has extra padding to right (causing scrollbar)
+- [ ] Optimize "search active" icon
+- [ ] Get `smart-filter` working again
+- [x] Show status indicators on list item (% downloaded, completed, seeding/downloading, etc.)
+- [X] Update toolbar with more filtering functionality
+- [x] When search icon is active, swap out the search icon to make it more visible search is active
+ - Probably use a blue, "glowing" icon for this
+- [x] Add a "footer" with various functionality, such as:
+- [X] Add `noselect` class to navbar elements
+- [X] Get `has-focus` directive working
