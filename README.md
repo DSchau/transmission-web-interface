@@ -6,13 +6,12 @@
 
 1. [ ] Integrate with transmission-rpc REST API
  * Use an angular factory to do this (already started)
-2. [ ] Show status indicators on list item (% downloaded, completed, seeding/downloading, etc.)
- * Want to make this work with `:active` selector.. not sure how
+2. [x] Show status indicators on list item (% downloaded, completed, seeding/downloading, etc.)
 3. [ ] Fix keyboard service; get working with `Command`, `Ctrl`, & `Shift`
 4. [ ] Think of a better UI for specific torrent info (modal isn't best!)
-5. [ ] When search icon is active, swap out the search icon to make it more visible search is active
+5. [x] When search icon is active, swap out the search icon to make it more visible search is active
  - Probably use a blue, "glowing" icon for this
-6. [ ] Add a "footer" with various functionality, such as:
+6. [x] Add a "footer" with various functionality, such as:
  * # of transfers
  * DL/UL status
  * Settings icon (launch a modal?)
