@@ -17,7 +17,7 @@ nav {
   ul {
     margin: 0;
     padding: 0 0.5rem;
-    padding-top: 0.5rem;
+    padding-top: 0.25rem;
     text-align: center;
     li {
       list-style-type: none;
@@ -77,7 +77,7 @@ nav {
       text-align: center;
       font-weight: normal;
       display: block;
-      padding-top: 0.15rem;
+      line-height: 22px;
     }
   }
 }
@@ -95,10 +95,10 @@ nav {
   &.nav-down {
     max-height: $mini-height;
     ul {
-      padding-top: 0.3rem;
+      padding-top: 0;
     }
     .icon {
-      max-height: 16px;
+      max-height: 26px;
       &.resume {
         position: relative;
         top: 1px;

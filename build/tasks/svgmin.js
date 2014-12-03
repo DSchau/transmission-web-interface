@@ -4,7 +4,8 @@ module.exports = {
       {
         expand: true,
         cwd: 'icons',
-        src: '*.svg'
+        src: '*.svg',
+        dest: 'icons/compressed'
       }
     ]
   }

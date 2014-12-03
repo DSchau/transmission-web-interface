@@ -26,14 +26,14 @@
       <li class="centered"><a class="icon pause" title="Pause Torrent(s)" tabindex="10"></a></li>
       <li class="centered"><a class="icon resume" title="Resume Torrent(s)" tabindex="20"></a></li>
       <li class="centered"><a class="icon remove" title="Remove Torrent(s)" tabindex="30"></a></li>
-      <li class="right"><a class="icon search" title="Filter Torrents"  tabindex="40" ng-click="app.showFilter = !app.showFilter;"></a></li>
+      <li class="right"><a class="icon search" title="Filter Torrents"  tabindex="40" ng-click="app.showFilter = !app.showFilter;" ng-class="{ 'active': app.showFilter }"></a></li>
   	</ul>
     <div class="filter row" ng-class="{'show-filter': app.showFilter}">
       <div class="small-6 medium-4 column cell">
         <select ng-model="app.filter.status" ng-options="status as status.label for status in app.statuses track by status.label" ng-init="app.filter.status = app.statuses[0]"></select>
       </div>
       <div class="small-6 medium-4 column cell no-pad">
-        <h6><strong>DL: </strong>4.2 MB/s <strong>UL: </strong> 2.1 MB/s</h6>
+        <h6><span class="icon chevron down"></span>4.2 MB/s <span class="icon chevron up"></span> 2.1 MB/s</h6>
       </div>
       <div class="medium-4 column cell">
         <input type="text" ng-model="app.filter.title" placeholder="Filter title..." has-focus="app.showFilter">
