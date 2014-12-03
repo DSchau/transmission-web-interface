@@ -6,6 +6,8 @@ $stripe-border-color: darken($border-color, 1.25%);
 
 $font-size: 0.9rem;
 
+@import "torrents-progress";
+
 .column.torrents {
   padding-right: 0;
   padding-left: 0;
@@ -17,23 +19,17 @@ $font-size: 0.9rem;
 }
 
 .torrent {
-  border-bottom: 1px solid $border-color;
   list-style-type: none;
   font-size: $font-size;
   cursor: pointer;
   &:last-child {
     border-bottom-width: 0;
   }
-  &:nth-child(even) {
+  &:nth-child(even) a {
     background-color: $stripe-color;
     border-color: $stripe-border-color;
   }
   a {
-    padding: $torrent-padding;
-    display: block;
-    &.selected {
-      background-color: darken($stripe-color, 15%);
-      border-color: darken($stripe-color, 25%);
-    }
+    border-bottom: 1px solid $border-color;
   }
 }

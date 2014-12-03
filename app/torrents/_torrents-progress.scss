@@ -1,0 +1,52 @@
+$completed-bg-color: #e4f9e5;
+$downloading-bg-color: #e4f1f9;
+$error-bg-color: #f9e4e4;
+
+$darkening-percentage: 10%;
+
+$completed-border-color: darken($completed-bg-color, $darkening-percentage);
+$downloading-border-color: darken($downloading-bg-color, $darkening-percentage);
+$error-border-color: darken($error-bg-color, $darkening-percentage);
+
+.torrent a {
+  padding: $torrent-padding;
+  display: block;
+  position: relative;
+  border-width: 0 1px 1px 0;
+  box-sizing: border-box;
+  &.selected {
+    background-color: darken($stripe-color, 15%);
+    border-color: darken($stripe-color, 25%);
+  }
+  .title {
+    z-index: $torrent-title-z-index;
+    position: relative;
+  }
+  .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: $torrent-z-index;
+    border-width: 0 1px 1px 0;
+    border-color: transparent;
+    border-style: solid;
+    box-sizing: border-box;
+  }
+}
+
+.torrent-list .torrent a {
+  .completed {
+    background-color: $completed-bg-color;
+    border-color: $completed-border-color;
+  }
+  .downloading {
+    background-color: $downloading-bg-color;
+    border-color: $downloading-border-color;
+  }
+  .error {
+    background-color: $error-bg-color;
+    border-color: $error-border-color;
+  }
+}

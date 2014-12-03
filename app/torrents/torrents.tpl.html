@@ -2,7 +2,10 @@
   <ul class="torrent-list">
     <li class="torrent" ng-repeat="torrent in torrents.torrentList" ng-click="torrents.selectTorrent(torrent, $index, $event);">
     <!-- <li class="torrent" ng-repeat="torrent in ( torrents = (torrents.torrentList | filter:app.filter) )" ng-click="torrents.selectTorrent(torrent, $index, $event);"> -->
-      <a ng-bind="torrent.title" class="noselect" ng-class="{ 'selected': torrent.selected }"></a>
+      <a class="noselect" ng-class="{ 'selected': torrent.selected}">
+        <span class="title" ng-bind="::torrent.title"></span>
+        <span class="progress" ng-class="{ 'completed': torrent.completed, 'downloading': torrent.downloading, 'error': torrent.error }" ng-style="{ width: ( (torrent.progress || 1) * 100) + '%' }"></span>
+      </a>
     </li>
   </ul>
 </div>

@@ -7,6 +7,7 @@ footer {
   width: 100%;
   background-color: rgba($header-bg-color, $header-opacity);
   border-top: 1px solid $header-border-color;
+  z-index: $footer-z-index;
   h6 {
     text-align: center;
     margin: 0;

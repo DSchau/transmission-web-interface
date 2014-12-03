@@ -29,3 +29,6 @@
  - I'd like this to be "inline" with the content
 15. [X] Add `noselect` class to navbar elements
 16. [X] Get `has-focus` directive working
+17. [ ] Figure out why mobile has extra padding to right (causing scrollbar)
+18. [ ] Optimize "search active" icon
+19. [ ] Get `smart-filter` working again

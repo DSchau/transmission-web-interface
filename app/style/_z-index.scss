@@ -1,0 +1,9 @@
+$base-z-index: 1;
+
+$z-index-gap: 10;
+
+$torrent-z-index: $base-z-index * $z-index-gap;
+$torrent-title-z-index: $torrent-z-index + 1;
+
+$header-z-index: ($base-z-index+1) * $z-index-gap;
+$footer-z-index: $header-z-index;
