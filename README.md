@@ -21,9 +21,9 @@
 - [ ] Use an `$httpInterceptor` to handle errors
 - [ ] Use a `loadingInterceptor` to show loading status
  - I'd like this to be "inline" with the content
-- [ ] Figure out why mobile has extra padding to right (causing scrollbar)
 - [ ] Optimize "search active" icon
-- [ ] Get `smart-filter` working again
+- [x] Figure out why mobile has extra padding to right (causing scrollbar)
+- [x] Get `smart-filter` working again
 - [x] Show status indicators on list item (% downloaded, completed, seeding/downloading, etc.)
 - [X] Update toolbar with more filtering functionality
 - [x] When search icon is active, swap out the search icon to make it more visible search is active

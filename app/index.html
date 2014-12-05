@@ -30,7 +30,7 @@
   	</ul>
     <div class="filter row" ng-class="{'show-filter': app.showFilter}">
       <div class="small-6 medium-4 column cell">
-        <select ng-model="app.filter.status" ng-options="status as status.label for status in app.statuses track by status.label" ng-init="app.filter.status = app.statuses[0]" tabindex="1"></select>
+        <select ng-model="app.filter.status" ng-options="status for status in app.statuses" ng-init="app.filter.status = app.statuses[0]" tabindex="1"></select>
       </div>
       <div class="small-6 medium-4 column cell no-pad">
         <h6><span class="icon chevron down"></span>4.2 MB/s <span class="icon chevron up"></span> 2.1 MB/s</h6>

@@ -7,24 +7,12 @@ angular.module('transmission')
   notTop : "nav-below"
 })
 .constant('STATUSES', [
-  {
-    label: 'All'
-  },
-  {
-    label: 'Active'
-  },
-  {
-    label: 'Downloading'
-  },
-  {
-    label: 'Seeding'
-  },
-  {
-    label: 'Paused'
-  },
-  {
-    label: 'Finished'
-  }
+  'All',
+  'Active',
+  'Downloading',
+  'Seeding',
+  'Paused',
+  'Finished'
 ])
 .controller('AppCtrl', function(NAV_CLASSES, STATUSES) {
 	this.navClasses = NAV_CLASSES;

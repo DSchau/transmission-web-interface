@@ -1,11 +1,13 @@
 $completed-bg-color: #e4f9e5;
 $downloading-bg-color: #e4f1f9;
+$paused-bg-color: darken(#FFF, 7.5%);
 $error-bg-color: #f9e4e4;
 
 $darkening-percentage: 10%;
 
 $completed-border-color: darken($completed-bg-color, $darkening-percentage);
 $downloading-border-color: darken($downloading-bg-color, $darkening-percentage);
+$paused-border-color: darken($paused-bg-color, $darkening-percentage);
 $error-border-color: darken($error-bg-color, $darkening-percentage);
 
 .torrent a {
@@ -21,6 +23,12 @@ $error-border-color: darken($error-bg-color, $darkening-percentage);
   .title {
     z-index: $torrent-title-z-index;
     position: relative;
+    display: block;
+    max-width: 100%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 5rem;
   }
   .progress {
     position: absolute;
@@ -44,6 +52,10 @@ $error-border-color: darken($error-bg-color, $darkening-percentage);
   .downloading {
     background-color: $downloading-bg-color;
     border-color: $downloading-border-color;
+  }
+  .paused {
+    background-color: $paused-bg-color;
+    border-color: $paused-border-color;
   }
   .error {
     background-color: $error-bg-color;
