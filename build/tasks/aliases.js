@@ -74,6 +74,7 @@ module.exports = function(grunt) {
         'build',
         'dom_munger:read',
         'jshint',
+        'configureProxies:main',
         'connect',
         'watch'
       ],

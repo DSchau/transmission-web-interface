@@ -1,5 +1,5 @@
 angular.module('transmission.common.constants.transmission', [])
-.constant('RPC_URL', 'http://24.252.20.168:9000/transmission/rpc')
+.constant('RPC_URL', '/transmission/rpc')
 .constant('GET_TORRENTS', {
   method: 'torrent-get',
   arguments: { 

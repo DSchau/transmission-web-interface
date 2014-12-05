@@ -4,8 +4,9 @@ angular.module('transmission', [
   'transmission.torrents',
   'transmission.common'
 ])
-.config(function($routeProvider) {
-    $routeProvider.otherwise({
-      redirectTo:'/torrents'
-    });
+.config(function($routeProvider, $httpProvider) {
+  $httpProvider.interceptors.push('httpInterceptor');
+  $routeProvider.otherwise({
+    redirectTo:'/torrents'
+  });
 });
