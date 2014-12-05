@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="transmission">
+<html>
 <head>
   <title>Transmission Web Client</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -17,6 +17,7 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-deferred-bootstrap/angular-deferred-bootstrap.js"></script>
   <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
   <!-- Add New Bower Component JS Above -->
 
@@ -36,7 +37,7 @@
         <h6><span class="icon chevron down"></span>4.2 MB/s <span class="icon chevron up"></span> 2.1 MB/s</h6>
       </div>
       <div class="medium-4 column cell">
-        <input type="text" ng-model="app.filter.title" placeholder="Filter title..." tabindex="2" has-focus="app.showFilter">
+        <input type="text" ng-model="app.filter.name" placeholder="Filter name..." tabindex="2" has-focus="app.showFilter">
       </div>
     </div>
   </nav>
