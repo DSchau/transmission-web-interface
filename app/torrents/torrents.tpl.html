@@ -6,7 +6,7 @@
         <span class="statistics">
           <span class="ratio" ng-bind="torrent.uploadRatio | number:2"></span>
         </span>
-        <span class="progress" ng-class="{ 'completed': torrent.completed, 'downloading': torrent.downloading, 'paused': torrent.paused, 'error': torrent.error }" ng-style="{ width: ( (torrent.progress || 1) * 100) + '%' }"></span>
+        <span class="progress" ng-class="{ 'completed': torrent.percentDone === 1, 'downloading': torrent.percentDone < 1, 'paused': torrent.status === 0, 'error': torrent.error }" ng-style="{ width: ( (torrent.progress || 1) * 100) + '%' }"></span>
       </a>
     </li>
   </ul>

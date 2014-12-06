@@ -11,6 +11,14 @@
   $torrent-stripe-border-color: darken($torrent-stripe-bg-color, 5%);
   $torrent-color: darken(#FFF, 25%);
 
+  /* TORRENTS PROGRESS */
+  // $completed-bg-color: #143c17;
+  $torrent-progress-height: 2px;
+
+  $completed-bg-color: #4fff9e;
+  $downloading-bg-color: #4fbfff;
+  $error-bg-color: #ff4f4f;
+
   /* FOOTER */
   $footer-color: darken(#FFF, 35%);
 }

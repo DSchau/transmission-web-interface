@@ -5,12 +5,13 @@ $error-bg-color: #f9e4e4 !default;
 
 $darkening-percentage: 10% !default;
 
-$completed-border-color: darken($completed-bg-color, $darkening-percentage) !default;
-$downloading-border-color: darken($downloading-bg-color, $darkening-percentage) !default;
-$paused-border-color: darken($paused-bg-color, $darkening-percentage) !default;
-$error-border-color: darken($error-bg-color, $darkening-percentage) !default;
+$completed-border-color: darken($completed-bg-color, $darkening-percentage);
+$downloading-border-color: darken($downloading-bg-color, $darkening-percentage);
+$paused-border-color: darken($paused-bg-color, $darkening-percentage);
+$error-border-color: darken($error-bg-color, $darkening-percentage);
 
 $torrent-font-size: 0.8rem;
+$torrent-progress-height: 100% !default;
 
 .torrent a {
   padding: $torrent-padding;
@@ -38,10 +39,14 @@ $torrent-font-size: 0.8rem;
   }
   .progress {
     position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: $torrent-progress-height;
+    @if $torrent-progress-height != 100% {
+      bottom: 0;
+    } @else {
+      top: 0;
+    }
     z-index: $torrent-z-index;
     border-width: 0 1px 1px 0;
     border-color: transparent;
