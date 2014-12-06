@@ -1,4 +1,5 @@
 $footer-height: $header-height * $scale-factor;
+$footer-color: #222 !default;
 
 footer {
   position: fixed;
@@ -6,6 +7,7 @@ footer {
   height: $footer-height;
   width: 100%;
   background-color: rgba($header-bg-color, $header-opacity);
+  color: $footer-color;
   border-top: 1px solid $header-border-color;
   z-index: $footer-z-index;
   h6 {

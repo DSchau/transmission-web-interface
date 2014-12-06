@@ -1,0 +1,16 @@
+@if $dark-theme {
+  /* NAV */
+  $header-bg-color: lighten(#000, 10%);
+  $header-border-color: darken($header-bg-color, 10%);
+  $header-opacity: 0.95;
+
+  /* TORRENTS */
+  $torrent-bg-color: lighten(#000, 10%);
+  $torrent-border-color: darken($torrent-bg-color, 5%);
+  $torrent-stripe-bg-color: lighten($torrent-bg-color, 1.5%);
+  $torrent-stripe-border-color: darken($torrent-stripe-bg-color, 5%);
+  $torrent-color: darken(#FFF, 25%);
+
+  /* FOOTER */
+  $footer-color: darken(#FFF, 35%);
+}

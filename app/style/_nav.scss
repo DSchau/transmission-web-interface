@@ -1,9 +1,9 @@
-$header-bg-color: darken(#FFF, 5%);
-$header-border-color: darken($header-bg-color, 15%);
-$header-opacity: 0.925;
+$header-bg-color: darken(#FFF, 5%) !default;
+$header-border-color: darken($header-bg-color, 15%) !default;
+$header-opacity: 0.925 !default;
 $header-height: $header-height !default;
 
-$scale-factor: 0.75;
+$scale-factor: 0.75 !default;
 
 nav {
   background-color: rgba($header-bg-color, $header-opacity);

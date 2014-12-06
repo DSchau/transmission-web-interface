@@ -1,14 +1,14 @@
-$completed-bg-color: #e4f9e5;
-$downloading-bg-color: #e4f1f9;
-$paused-bg-color: darken(#FFF, 7.5%);
-$error-bg-color: #f9e4e4;
+$completed-bg-color: #e4f9e5 !default;
+$downloading-bg-color: #e4f1f9 !default;
+$paused-bg-color: darken(#FFF, 7.5%) !default;
+$error-bg-color: #f9e4e4 !default;
 
-$darkening-percentage: 10%;
+$darkening-percentage: 10% !default;
 
-$completed-border-color: darken($completed-bg-color, $darkening-percentage);
-$downloading-border-color: darken($downloading-bg-color, $darkening-percentage);
-$paused-border-color: darken($paused-bg-color, $darkening-percentage);
-$error-border-color: darken($error-bg-color, $darkening-percentage);
+$completed-border-color: darken($completed-bg-color, $darkening-percentage) !default;
+$downloading-border-color: darken($downloading-bg-color, $darkening-percentage) !default;
+$paused-border-color: darken($paused-bg-color, $darkening-percentage) !default;
+$error-border-color: darken($error-bg-color, $darkening-percentage) !default;
 
 $torrent-font-size: 0.8rem;
 
@@ -20,8 +20,8 @@ $torrent-font-size: 0.8rem;
   font-size: $torrent-font-size;
   box-sizing: border-box;
   &.selected {
-    background-color: darken($stripe-color, 15%);
-    border-color: darken($stripe-color, 25%);
+    background-color: darken($torrent-stripe-bg-color, 15%);
+    border-color: darken($torrent-stripe-bg-color, 25%);
   }
   .title {
     z-index: $torrent-title-z-index;
