@@ -10,11 +10,14 @@ $downloading-border-color: darken($downloading-bg-color, $darkening-percentage);
 $paused-border-color: darken($paused-bg-color, $darkening-percentage);
 $error-border-color: darken($error-bg-color, $darkening-percentage);
 
+$torrent-font-size: 0.8rem;
+
 .torrent a {
   padding: $torrent-padding;
   display: block;
   position: relative;
   border-width: 0 1px 1px 0;
+  font-size: $torrent-font-size;
   box-sizing: border-box;
   &.selected {
     background-color: darken($stripe-color, 15%);
@@ -23,12 +26,15 @@ $error-border-color: darken($error-bg-color, $darkening-percentage);
   .title {
     z-index: $torrent-title-z-index;
     position: relative;
-    display: block;
-    max-width: 100%;
+    display: inline-block;
+    max-width: 70%;
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding-right: 5rem;
+  }
+  .statistics {
+    position: absolute;
+    right: 0;
   }
   .progress {
     position: absolute;

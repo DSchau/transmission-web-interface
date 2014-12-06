@@ -1,15 +1,40 @@
 window.deferredBootstrapper.bootstrap({
   element: document.body,
   module: 'transmission',
+  injectorModules: ['ngCookies'],
   resolve: {
-    API_KEY: ['$http', '$q', function ($http, $q) {
+    SESSION_ID: ['$http', '$q', '$cookieStore', function ($http, $q, $cookieStore) {
       var defer = $q.defer();
-      $http.post('/transmission/rpc').error(function(data, status, headers) {
+
+      var token = 'X-Transmission-Session-Id',
+        sessionId = $cookieStore.get(token);
+
+      var success = function() {
+        defer.resolve(sessionId);
+      };
+
+      var error = function(data, status, headers) {
         var headerObj = headers(),
-          token = 'X-Transmission-Session-Id',
-          key = headerObj[token.toLowerCase()];
-        defer.resolve(key);
-      });
+          id = headerObj[token.toLowerCase()];
+        $cookieStore.put(token, id);
+        defer.resolve(id);
+      };
+
+      if ( sessionId ) {
+        $http.defaults.headers.common[token] = sessionId;
+        $http.post('/transmission/rpc')
+          .success(success) /* Use the defined session_id */
+          .error(error); /* Re-set the session_id with updated header */
+      } else {
+        $http.post('/transmission/rpc')
+          .error(error);
+      }
+      
+      return defer.promise;
+    }],
+    PREFS: ['$q', '$cookieStore', function($q, $cookieStore) {
+      var defer = $q.defer();
+      defer.resolve($cookieStore.get('transmission.prefs'));
       return defer.promise;
     }]
   }
@@ -17,12 +42,14 @@ window.deferredBootstrapper.bootstrap({
 
 angular.module('transmission', [
   'ngRoute',
+  'ngCookies',
   'headroom',
   'transmission.torrents',
+  'transmission.settings',
   'transmission.common'
 ])
-.config(function($routeProvider, $httpProvider, API_KEY) {
-  $httpProvider.defaults.headers.common['X-Transmission-Session-Id'] = API_KEY;
+.config(function($routeProvider, $httpProvider, SESSION_ID) {
+  $httpProvider.defaults.headers.common['X-Transmission-Session-Id'] = SESSION_ID;
   $httpProvider.interceptors.push('httpInterceptor');
   $routeProvider.otherwise({
     redirectTo:'/torrents'

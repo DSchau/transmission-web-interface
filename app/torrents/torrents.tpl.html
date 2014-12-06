@@ -1,8 +1,11 @@
 <div class="column torrents">
   <ul class="torrent-list">
-    <li class="torrent" ng-repeat="torrent in torrents.torrentList.torrents | smartFilter:app.filter" ng-click="torrents.selectTorrent(torrent, $index, $event);">
+    <li class="torrent" ng-repeat="torrent in ( app.torrents = (torrents.torrentList.torrents | smartFilter:app.filter) )" ng-click="torrents.selectTorrent(torrent, $index, $event);">
       <a class="noselect" ng-class="{ 'selected': torrent.selected}">
         <span class="title" ng-bind="::torrent.name"></span>
+        <span class="statistics">
+          <span class="ratio" ng-bind="torrent.uploadRatio | number:2"></span>
+        </span>
         <span class="progress" ng-class="{ 'completed': torrent.completed, 'downloading': torrent.downloading, 'paused': torrent.paused, 'error': torrent.error }" ng-style="{ width: ( (torrent.progress || 1) * 100) + '%' }"></span>
       </a>
     </li>

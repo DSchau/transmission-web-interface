@@ -14,9 +14,15 @@ angular.module('transmission')
   'Paused',
   'Finished'
 ])
-.controller('AppCtrl', function(NAV_CLASSES, STATUSES) {
+.controller('AppCtrl', function(transmissionRPC, transmissionAPI, NAV_CLASSES, STATUSES) {
 	this.navClasses = NAV_CLASSES;
   this.statuses = STATUSES;
 
   this.showFilter = false;
+
+  this.statistics = transmissionRPC.stats(transmissionAPI.stats);
+
+  this.pause = function() {
+    console.log('pausing torrent!');
+  };
 });
