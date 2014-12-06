@@ -1,11 +1,12 @@
 @if $dark-theme {
   /* NAV */
   $header-bg-color: lighten(#000, 10%);
-  $header-border-color: darken($header-bg-color, 10%);
-  $header-opacity: 0.95;
+  $header-border-color: lighten($header-bg-color, 10%);
+  $header-color: darken(#FFF, 35%);
+  $header-opacity: 0.925;
 
   /* TORRENTS */
-  $torrent-bg-color: lighten(#000, 10%);
+  $torrent-bg-color: lighten(#000, 15%);
   $torrent-border-color: darken($torrent-bg-color, 5%);
   $torrent-stripe-bg-color: lighten($torrent-bg-color, 1.5%);
   $torrent-stripe-border-color: darken($torrent-stripe-bg-color, 5%);
@@ -19,6 +20,14 @@
   $downloading-bg-color: #4fbfff;
   $error-bg-color: #ff4f4f;
 
+  /* ICONS */
+  $icon-opacity: 0.9;
+  $icon-hover-opacity: 1;
+
   /* FOOTER */
   $footer-color: darken(#FFF, 35%);
+
+  body {
+    background-color: black;
+  }
 }

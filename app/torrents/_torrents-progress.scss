@@ -20,23 +20,6 @@ $torrent-progress-height: 100% !default;
   border-width: 0 1px 1px 0;
   font-size: $torrent-font-size;
   box-sizing: border-box;
-  &.selected {
-    background-color: darken($torrent-stripe-bg-color, 15%);
-    border-color: darken($torrent-stripe-bg-color, 25%);
-  }
-  .title {
-    z-index: $torrent-title-z-index;
-    position: relative;
-    display: inline-block;
-    max-width: 70%;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .statistics {
-    position: absolute;
-    right: 0;
-  }
   .progress {
     position: absolute;
     left: 0;

@@ -1,5 +1,6 @@
 $header-bg-color: darken(#FFF, 5%) !default;
 $header-border-color: darken($header-bg-color, 15%) !default;
+$header-color: #222 !default;
 $header-opacity: 0.925 !default;
 $header-height: $header-height !default;
 
@@ -13,6 +14,7 @@ nav {
   position: fixed;
   top: 0;
   z-index: $header-z-index;
+  color: $header-color;
   ul {
     margin: 0;
     padding: 0 0.25rem;

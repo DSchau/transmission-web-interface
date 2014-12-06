@@ -1,12 +1,16 @@
 <div class="column torrents">
   <ul class="torrent-list">
     <li class="torrent" ng-repeat="torrent in ( app.torrents = (torrents.torrentList.torrents | smartFilter:app.filter) )" ng-click="torrents.selectTorrent(torrent, $index, $event);">
-      <a class="noselect" ng-class="{ 'selected': torrent.selected}">
-        <span class="title" ng-bind="::torrent.name"></span>
-        <span class="statistics">
-          <span class="ratio" ng-bind="torrent.uploadRatio | number:2"></span>
-        </span>
-        <span class="progress" ng-class="{ 'completed': torrent.percentDone === 1, 'downloading': torrent.percentDone < 1, 'paused': torrent.status === 0, 'error': torrent.error }" ng-style="{ width: ( (torrent.progress || 1) * 100) + '%' }"></span>
+      <a class="noselect" ng-class="{ 'selected': torrent.selected}" title="{{torrent.name}}">
+        <strong class="title" ng-bind="::torrent.name"></strong>
+        <div class="statistics">
+          <span class="have" ng-bind="torrent.totalSize | bytes:false:true"></span> of 
+          <span class="total" ng-bind="::torrent.sizeWhenDone | bytes:false:true"></span>
+          <span class="percentage">
+            (<span ng-bind="torrent.percentDone * 100"></span>%)
+          </span>
+        </div>
+        <div class="progress" ng-class="{ 'completed': torrent.percentDone === 1, 'downloading': torrent.percentDone < 1, 'paused': torrent.status === 0, 'error': torrent.error }" ng-style="{ width: ( (torrent.progress || 1) * 100) + '%' }"></div>
       </a>
     </li>
   </ul>

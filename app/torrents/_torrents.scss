@@ -7,7 +7,8 @@ $torrent-color: #444 !default;
 $torrent-stripe-bg-color: darken(#FFF, 1.25%) !default;
 $torrent-stripe-border-color: darken($torrent-border-color, 1.25%) !default;
 
-$torrent-font-size: 0.9rem !default;
+$torrent-font-size: 1rem !default;
+$torrent-font-size-small: $torrent-font-size * 0.8;
 
 @import "torrents-progress";
 
@@ -32,6 +33,29 @@ $torrent-font-size: 0.9rem !default;
   a {
     background-color: $torrent-bg-color;
     color: $torrent-color;
+    &.selected {
+      background-color: darken($torrent-stripe-bg-color, 15%);
+      border-color: darken($torrent-stripe-bg-color, 25%);
+    }
+    .title {
+      z-index: $torrent-title-z-index;
+      position: relative;
+      display: inline-block;
+      max-width: 95%;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .statistics {
+      position: relative;
+      z-index: $torrent-z-index+1;
+      font-size: $torrent-font-size-small;
+      @if $dark-theme {
+        color: darken($torrent-color, 10%);
+      } @else {
+        color: lighten($torrent-color, 10%);
+      }
+    }
   }
   &:nth-child(even) a {
     background-color: $torrent-stripe-bg-color;

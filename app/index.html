@@ -7,6 +7,7 @@
   <link href="app/app.scss" type="text/css" rel="stylesheet/scss">
 </head>
 <body ng-controller="AppCtrl as app">
+<!-- <body ng-controller="AppCtrl as app" class="dark"> -->
 
   <!-- Livereload script for development only (stripped during dist build) -->
   <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
@@ -35,7 +36,7 @@
         <select ng-model="app.filter.status" ng-options="status for status in app.statuses" ng-init="app.filter.status = app.statuses[0]" tabindex="1"></select>
       </div>
       <div class="small-6 medium-4 column cell no-pad">
-        <h6><span class="icon chevron down"></span><span ng-bind="app.statistics.downloadSpeed | bytes"></span> <span class="icon chevron up"></span> <span ng-bind="app.statistics.uploadSpeed | bytes"></span></h6>
+        <h6><span class="icon download"></span><span ng-bind="app.statistics.downloadSpeed | bytes:true"></span> <span class="icon upload"></span> <span ng-bind="app.statistics.uploadSpeed | bytes:true"></span></h6>
       </div>
       <div class="medium-4 column cell">
         <input type="text" ng-model="app.filter.name" placeholder="Filter name..." tabindex="2" has-focus="app.showFilter">

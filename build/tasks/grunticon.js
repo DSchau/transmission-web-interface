@@ -1,5 +1,10 @@
 module.exports = {
   icons: {
+    options: {
+      colors: {
+        white: '#FFF'
+      }
+    },
     files: [
       {
         expand: true,
