@@ -2,6 +2,8 @@
 
 **NOT COMPLETE**
 
+![Image](http://i.imgur.com/sic2bIk.png?1)
+
 ### To-do
 
 - [ ] Integrate with transmission-rpc REST API
