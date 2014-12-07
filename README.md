@@ -2,7 +2,7 @@
 
 **NOT COMPLETE**
 
-![Image](http://i.imgur.com/sic2bIk.png?1)
+![Image](http://i.imgur.com/tAMpwA5.png)
 
 ### Features
 
