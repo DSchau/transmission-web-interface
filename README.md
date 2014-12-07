@@ -8,6 +8,7 @@
 
 - [ ] Integrate with transmission-rpc REST API
  * Use an angular factory to do this (already started)
+ - This is somewhat started; some stuff works (pulling all torrents, for instance)
 - [ ] Fix keyboard service; get working with `Command`, `Ctrl`, & `Shift`
 - [ ] Think of a better UI for specific torrent info (modal isn't best!)
  - # of transfers
@@ -15,7 +16,8 @@
  - Settings icon (launch a modal?)
 - [ ] Integrate a modal service
  - Might create my own; use an existing one
-- [ ] Integrate DL/UL stats onto list item
+- [x] Integrate DL/UL stats onto list item
+ - Add additional stats (time remaining, complete status)
 - [ ] Offer an alternate view with more detail (cards?)
 - [ ] Get click/dbl-click working on list item
 - [ ] Tighten up animations
@@ -23,7 +25,7 @@
 - [ ] Use an `$httpInterceptor` to handle errors
 - [ ] Use a `loadingInterceptor` to show loading status
  - I'd like this to be "inline" with the content
-- [ ] Optimize "search active" icon
+- [x] Optimize "search active" icon
 - [x] Figure out why mobile has extra padding to right (causing scrollbar)
 - [x] Get `smart-filter` working again
 - [x] Show status indicators on list item (% downloaded, completed, seeding/downloading, etc.)
