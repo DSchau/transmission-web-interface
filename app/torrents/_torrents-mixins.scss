@@ -1,0 +1,16 @@
+@mixin progress-indicator($color) {
+  // $bg-color: $#{$color}-bg-color;
+  // $border-color: $#{$color}-border-color;
+  $bg-color: white;
+  $border-color: white;
+  $color: lighten($bg-color, $torrent-progress-lightening);
+  &.#{$color} {
+    @if $dark-theme {
+      color: $color;
+    }
+    .progress {
+      background-color: $bg-color;
+      border-color: $border-color;
+    }
+  }
+}

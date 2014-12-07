@@ -13,6 +13,10 @@ $error-border-color: darken($error-bg-color, $darkening-percentage);
 $torrent-font-size: 0.8rem;
 $torrent-progress-height: 100% !default;
 
+$torrent-progress-lightening: 27.5%;
+
+@import "torrents-mixins";
+
 .torrent a {
   padding: $torrent-padding;
   display: block;
@@ -38,21 +42,43 @@ $torrent-progress-height: 100% !default;
   }
 }
 
+$states: completed, downloading, paused, error;
+
 .torrent-list .torrent a {
-  .completed {
-    background-color: $completed-bg-color;
-    border-color: $completed-border-color;
+  &.completed {
+    @if $dark-theme {
+      color: lighten($completed-bg-color, $torrent-progress-lightening);
+    }
+    .progress {
+      background-color: $completed-bg-color;
+      border-color: $completed-border-color;
+    }
   }
-  .downloading {
-    background-color: $downloading-bg-color;
-    border-color: $downloading-border-color;
+  &.downloading {
+    @if $dark-theme {
+      color: lighten($downloading-bg-color, $torrent-progress-lightening);
+    }
+    .progress {
+      background-color: $downloading-bg-color;
+      border-color: $downloading-border-color;
+    }
   }
-  .paused {
-    background-color: $paused-bg-color;
-    border-color: $paused-border-color;
+  &.paused {
+    @if $dark-theme {
+      color: lighten($paused-bg-color, $torrent-progress-lightening);
+    }
+    .progress {
+      background-color: $paused-bg-color;
+      border-color: $paused-border-color;
+    }
   }
-  .error {
-    background-color: $error-bg-color;
-    border-color: $error-border-color;
+  &.error {
+    @if $dark-theme {
+      color: lighten($error-bg-color, $torrent-progress-lightening);
+    }
+    .progress {
+      background-color: $error-bg-color;
+      border-color: $error-border-color;
+    }
   }
 }
