@@ -4,7 +4,7 @@
 
 ![Image](http://i.imgur.com/sic2bIk.png?1)
 
-### To-do
+### Features
 
 - [ ] Integrate with transmission-rpc REST API
  * Use an angular factory to do this (already started)
@@ -33,3 +33,8 @@
 - [x] Add a "footer" with various functionality, such as:
 - [X] Add `noselect` class to navbar elements
 - [X] Get `has-focus` directive working
+
+### Fixes
+
+- [ ] Fix mobile filtering functionality
+ - Is currently a little wacky.. explicit CSS `height` property is too small
