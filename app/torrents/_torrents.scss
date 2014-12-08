@@ -1,6 +1,6 @@
 $torrent-bg-color: #FFF !default;
 $torrent-border-color: darken(#FFF, 5%) !default;
-$torrent-padding: 0.5rem 0.25rem !default;
+$torrent-padding: 0.5rem !default;
 
 $torrent-color: #444 !default;
 
@@ -38,24 +38,58 @@ $torrent-statistics-font-size: $torrent-font-size * 0.75;
       background-color: darken($torrent-stripe-bg-color, 15%) !important;
       border-color: darken($torrent-stripe-bg-color, 25%) !important;
     }
-    .title {
-      z-index: $torrent-title-z-index;
-      position: relative;
-      display: inline-block;
-      max-width: 95%;
-      font-size: $torrent-title-font-size;
+    &.full-width {
+      .title, .statistics {
+        max-width: 95%;
+      }
+    }
+    .title, .statistics {
+      max-width: 77.5%;
       overflow-x: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      position: relative;
+    }
+    .title {
+      z-index: $torrent-title-z-index;
+      display: inline-block;
+      font-size: $torrent-title-font-size;
     }
     .statistics {
-      position: relative;
       z-index: $torrent-z-index+1;
       font-size: $torrent-statistics-font-size;
       @if $dark-theme {
         color: darken($torrent-color, 10%);
       } @else {
         color: lighten($torrent-color, 10%);
+      }
+    }
+    .download-upload {
+      font-size: $torrent-font-size * 0.7;
+      color: $torrent-color;
+      position: absolute;
+      right: 0.5rem;
+      top: 47.5%;
+      transform: translateY(-50%);
+      .dl, .ul {
+        display: block;
+        padding: 0.125rem 0.25rem;
+        margin: 0.2rem 0;
+        border-radius: 0.25rem;
+        text-align: center;
+      }
+      .dl {
+        background-color: rgba($downloading-bg-color, 0.15);
+        border: 1px solid rgba(lighten($downloading-bg-color, 25%), 0.25);
+      }
+      .ul {
+        background-color: rgba($completed-bg-color, 0.15);
+        border: 1px solid rgba(lighten($completed-bg-color, 25%), 0.25);
+      }
+      .icon {
+        margin: 0;
+        margin-right: 0.25rem;
+        float: left;
       }
     }
   }

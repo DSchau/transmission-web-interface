@@ -3,7 +3,7 @@ angular.module('transmission.common.filters.humanize', [])
   var humanize = function(input, unit) {
     if ( typeof input === 'number' ) {
       var duration = moment.duration(input, (typeof unit === 'undefined' ? 'seconds' : unit));
-      if ( duration.hours() >= 24 ) {
+      if ( duration.hours() >= 22 ) {
         return duration.humanize();
       } else if ( duration.hours() > 1 ) {
         return duration.hours() + ' hours, ' + duration.minutes() + ' minutes remaining';

@@ -15,6 +15,8 @@
  - # of transfers
  - DL/UL status
  - Settings icon (launch a modal?)
+ - On click of *any* torrent, select it, and pop down additional detail
+  - I think this will suffice...
 - [ ] Integrate a modal service
  - Might create my own; use an existing one
 - [x] Integrate DL/UL stats onto list item

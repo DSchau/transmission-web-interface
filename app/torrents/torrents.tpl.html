@@ -1,23 +1,34 @@
 <div class="column torrents">
   <ul class="torrent-list">
     <li class="torrent" ng-repeat="torrent in ( app.torrents = (torrents.list.torrents | smartFilter:app.filter) )" ng-click="torrents.selectTorrent(torrent, $index, $event, app.torrents);">
-      <a class="noselect" title="{{torrent.name}}" ng-class="{ 'selected': torrents.selectedTorrents[torrent.id], 'completed': torrent.percentDone === 1, 'downloading': torrent.percentDone < 1, 'paused': torrent.status === 0, 'error': torrent.error }">
+      <a class="noselect" title="{{torrent.name}}" ng-class="{ 'selected': torrents.selectedTorrents[torrent.id], 'completed': torrent.percentDone === 1, 'downloading': torrent.percentDone < 1, 'paused': torrent.status === 0, 'error': torrent.error, 'full-width': (!torrent.rateDownload && !torrent.status) || torrent.error }">
         <strong class="title" ng-bind="::torrent.name"></strong>
-        <div class="statistics">
-          <span class="have" ng-bind="(torrent.sizeWhenDone - torrent.leftUntilDone) | bytes:false:true"></span> of 
-          <span class="total" ng-bind="::torrent.sizeWhenDone | bytes:false:true"></span>
-          <span class="percentage">
-            (<span ng-bind="torrent.percentDone * 100 | number:2"></span>%)
+        <div class="statistics" ng-switch="torrent.error > 0">
+          <span ng-switch-when="true">
+            <span ng-bind="torrent.errorString"></span>
           </span>
-          <span class="remaining" ng-switch="torrent.percentDone < 1">
-            - 
-            <span ng-switch-when="true">
-              <span ng-bind="torrent.eta | humanize"></span>
+          <span ng-switch-default>
+            <span class="have" ng-bind="(torrent.sizeWhenDone - torrent.leftUntilDone) | bytes:false:true"></span> of 
+            <span class="total" ng-bind="::torrent.sizeWhenDone | bytes:false:true"></span>
+            <span class="percentage">
+              (<span ng-bind="torrent.percentDone * 100 | number:2"></span>%)
             </span>
-            <span ng-switch-default>Download complete</span>
+            <span class="remaining" ng-if="torrent.percentDone < 1">
+              - <span ng-bind="torrent.eta | humanize"></span>
+            </span>
           </span>
         </div>
-        <div class="progress" ng-style="{ width: ( (torrent.percentDone || 1) * 100) + '%' }"></div>
+        <div class="download-upload">
+          <span class="dl" ng-if="torrent.rateDownload">
+            <span class="download icon"></span>
+            <span class="rate" ng-bind="torrent.rateDownload | bytes:true"></span>
+          </span>
+          <span class="ul" ng-if="torrent.status && !torrent.error">
+            <span class="upload icon"></span>
+            <span class="rate" ng-bind="torrent.rateUpload | bytes:true"></span>
+          </span>
+        </div>
+        <div class="progress" ng-style="{ width: ( torrent.percentDone * 100) + '%' }"></div>
       </a>
     </li>
   </ul>

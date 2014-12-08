@@ -18,7 +18,8 @@ $torrent-progress-lightening: 27.5%;
 @import "torrents-mixins";
 
 .torrent a {
-  padding: $torrent-padding;
+  padding: $torrent-padding 0;
+  padding-left: $torrent-padding;
   display: block;
   position: relative;
   border-width: 0 1px 1px 0;
