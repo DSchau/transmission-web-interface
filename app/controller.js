@@ -31,7 +31,7 @@ angular.module('transmission')
 
   this.showFilter = false;
 
-  this.statistics = transmissionRPC.stats();
+  this.statistics = transmissionRPC.stats(transmissionAPI.stats);
 
   this.action = function(action) {
     transmissionRPC.action(transmissionAPI[action](getIds(torrents.selected)), function(result) {

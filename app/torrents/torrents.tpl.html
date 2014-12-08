@@ -1,7 +1,7 @@
 <div class="column torrents">
   <ul class="torrent-list">
     <li class="torrent" ng-repeat="torrent in ( app.torrents = (torrents.list.torrents | smartFilter:app.filter) )" ng-click="torrents.selectTorrent(torrent, $index, $event, app.torrents);">
-      <a class="noselect" title="{{torrent.name}}" ng-class="{ 'selected': torrents.selectedTorrents[torrent.id], 'completed': torrent.percentDone === 1, 'downloading': torrent.percentDone < 1, 'paused': torrent.status === 0, 'error': torrent.error, 'full-width': (!torrent.rateDownload && !torrent.status) || torrent.error }">
+      <a class="noselect" title="{{torrent.name}}" ng-class="{ 'selected': torrents.selectedTorrents[torrent.id], 'completed': torrent.percentDone === 1, 'downloading': torrent.percentDone < 1, 'paused': torrent.status === 0, 'error': torrent.error, 'full-width': (!torrent.rateDownload && !torrent.status) || torrent.error, 'additional-detail': torrents.mostRecent === torrent.id }">
         <strong class="title" ng-bind="::torrent.name"></strong>
         <div class="statistics" ng-switch="torrent.error > 0">
           <span ng-switch-when="true">
@@ -27,6 +27,12 @@
             <span class="upload icon"></span>
             <span class="rate" ng-bind="torrent.rateUpload | bytes:true"></span>
           </span>
+        </div>
+        <div class="additional-detail" ng-if="torrents.mostRecent === torrent.id">
+          <div class="button-group">
+            <span class="button" ng-repeat="category in ['Info', 'Peers', 'Tracker', 'Pieces']" ng-bind="category"></span>
+          </div>
+          <span class="icon chevron up"></span>
         </div>
         <div class="progress" ng-style="{ width: ( torrent.percentDone * 100) + '%' }"></div>
       </a>

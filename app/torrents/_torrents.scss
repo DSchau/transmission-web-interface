@@ -64,6 +64,12 @@ $torrent-statistics-font-size: $torrent-font-size * 0.75;
         color: lighten($torrent-color, 10%);
       }
     }
+    &.additional-detail {
+      .download-upload {
+        top: 0;
+        transform: none;
+      }
+    }
     .download-upload {
       font-size: $torrent-font-size * 0.7;
       color: $torrent-color;
@@ -90,6 +96,17 @@ $torrent-statistics-font-size: $torrent-font-size * 0.75;
         margin: 0;
         margin-right: 0.25rem;
         float: left;
+      }
+    }
+    .additional-detail {
+      padding: 0.5rem 0;
+      margin-top: 0.35rem;
+      margin-right: 0.5rem;
+      border-top: 1px solid $torrent-color;
+      .icon.chevron {
+        position: absolute;
+        left: 50%;
+        bottom: 0.5rem;
       }
     }
   }
