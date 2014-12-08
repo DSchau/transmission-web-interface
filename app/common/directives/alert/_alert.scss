@@ -1,0 +1,28 @@
+$alert-success-color: #4fff9e !default;
+$alert-error-color: red !default;
+
+$alert-text-color: black !default;
+
+$alert-height: $header-height * $scale-factor !default;
+
+.alert {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: $alert-height;
+  line-height: $alert-height;
+  z-index: $alert-z-index;
+  text-align: center;
+  p {
+    margin: 0;
+    strong {
+      padding-right: 8px;
+    }
+  }
+  &.success {
+    background-color: $alert-success-color;
+  }
+  &.error {
+    background-color: $alert-error-color;
+  }
+}

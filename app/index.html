@@ -26,6 +26,8 @@
   <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
   <!-- Add New Bower Component JS Above -->
 
+  <alerts array="app.alerts"></alerts>
+
   <nav headroom classes="app.navClasses" class="noselect">
   	<ul>
   		<li class="left"><a class="icon new" title="Open Torrent"></a></li>
@@ -35,7 +37,7 @@
       <li class="right"><a class="icon search" title="Filter Torrents" ng-click="app.showFilter = !app.showFilter;" ng-class="{ 'active': app.showFilter }"></a></li>
   	</ul>
     <div class="filter row" ng-class="{'show-filter': app.showFilter}">
-      <div class="medium-8 medium-centered large-7 column cell">
+      <div class="medium-8 large-7 medium-centered large-uncentered column cell">
         <div class="button-group">
           <a class="button" ng-repeat="status in app.statuses" ng-bind="status" ng-class="{ active: app.status === status }" ng-click="app.status = status;"></a>
         </div>

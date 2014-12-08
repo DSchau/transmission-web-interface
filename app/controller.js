@@ -19,8 +19,10 @@ angular.module('transmission')
   });
 })
 .controller('AppCtrl', function(torrents, getIds, transmissionRPC, transmissionAPI, NAV_CLASSES, STATUSES) {
-  this.torrents = torrents.list;
-  this.selectedTorrents = torrents.selected;
+  var self = this;
+  torrents.list = this.torrents;
+
+  this.alerts = [];
 
 	this.navClasses = NAV_CLASSES;
   this.statuses = STATUSES;
@@ -31,6 +33,14 @@ angular.module('transmission')
   this.statistics = transmissionRPC.stats();
 
   this.action = function(action) {
-    this[action + 'Result'] = transmissionRPC.action(transmissionAPI[action](getIds(torrents.selected)));
+    transmissionRPC.action(transmissionAPI[action](getIds(torrents.selected)), function(result) {
+      var success = result.result === 'success';
+      var message = action + (action[action.length-1] === 'e' ? 'd!' : 'ed!');
+      self.alerts.push({
+        type: success ? 'success' : 'error',
+        timeout: 5000,
+        message: success ? 'torrent(s) ' + message : 'Torrent(s) failed to ' + message.replace(/d!$/, '!')
+      });
+    });
   };
 });
