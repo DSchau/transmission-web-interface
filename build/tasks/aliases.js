@@ -50,16 +50,33 @@ module.exports = function(grunt) {
         'clean:before',
         'sass',
         'autoprefixer',
-        'dom_munger',
+        'dom_munger:read',
+        'dom_munger:update',
+        'ngtemplates',
+        'concat',
+        'ngAnnotate',
+        'copy',
+        'clean:after'
+      ],
+    },
+    'compile': {
+      description: 'Build and minify assets',
+      tasks: [
+        'jshint',
+        'clean:before',
+        'sass',
+        'autoprefixer',
+        'dom_munger:read',
+        'dom_munger:compile',
         'ngtemplates',
         'cssmin',
         'concat',
         'ngAnnotate',
         'uglify',
-        'copy',
         'htmlmin',
+        'copy:main',
         'clean:after'
-      ],
+      ]
     },
     'icons': {
       description: 'Generate base-64 SVG and PNGs from SVG icons',

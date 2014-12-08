@@ -25,6 +25,26 @@ module.exports = {
       append: [
         {
           selector:'body',
+          html:'<script src="app.full.js"></script>'
+        },
+        {
+          selector:'head',
+          html:'<link rel="stylesheet" href="app.css">'
+        }
+      ]
+    },
+    src:'<%= app %>/index.html',
+    dest: '<%= dist %>/index.html'
+  },
+  compile: {
+    options: {
+      remove: [
+        'script[data-remove!="false"]',
+        'link[data-remove!="false"]'
+      ],
+      append: [
+        {
+          selector:'body',
           html:'<script src="app.full.min.js"></script>'
         },
         {
