@@ -10,9 +10,7 @@ angular.module('transmission.torrents.services.keyboard', [])
   keyboard.selected = {};
 
   keyboard.multiSelect = function(item, index, event, arr) {
-    var id = item.id || index,
-      previousSelection = keyboard.selected[index];
-
+    var id = item.id || index;
     if ( event.shiftKey ) {
       keyboard.modifiers.prev = typeof keyboard.modifiers.current === 'number' ? keyboard.modifiers.current : false;
       keyboard.modifiers.current = index;
@@ -24,11 +22,7 @@ angular.module('transmission.torrents.services.keyboard', [])
     } else {
       keyboard.modifiers = { current: index, prev: false };
       keyboard.selected = event.metaKey ? keyboard.selected : {};
-      if ( !previousSelection ) {
-        keyboard.selected[index] = id;
-      } else if ( event.metaKey ) {
-        keyboard.selected[index] = false;
-      }
+      keyboard.selected[index] = id;
     }
   };
 
