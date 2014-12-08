@@ -9,7 +9,7 @@
 - [ ] Integrate with transmission-rpc REST API
  * Use an angular factory to do this (already started)
  - This is somewhat started; some stuff works (pulling all torrents, for instance)
-- [ ] Fix keyboard service; get working with `Command`, `Ctrl`, & `Shift`
+- [x] Fix keyboard service; get working with `Command`, `Ctrl`, & `Shift`
 - [ ] Think of a better UI for specific torrent info (modal isn't best!)
  - # of transfers
  - DL/UL status

@@ -2,32 +2,43 @@ angular.module('transmission.torrents.services.keyboard', [])
 .factory('keyboard', function() {
   var keyboard = {};
 
-  keyboard.prevIndex = false;
-  keyboard.index = -1;
+  keyboard.modifiers = {
+    prev: false,
+    current: false
+  };
+
+  keyboard.selected = {};
 
   keyboard.multiSelect = function(item, index, event, arr) {
-    if ( event.shiftKey) {
-      if ( keyboard.prevIndex ) {
-        keyboard.selectRange(arr, keyboard.prevIndex, index);
+    var id = item.id || index,
+      previousSelection = keyboard.selected[index];
+
+    if ( event.shiftKey ) {
+      keyboard.modifiers.prev = typeof keyboard.modifiers.current === 'number' ? keyboard.modifiers.current : false;
+      keyboard.modifiers.current = index;
+      if ( typeof keyboard.modifiers.prev === 'number' ) {
+        keyboard.selectRange(arr);
       } else {
-        keyboard.prevIndex = index;
+        keyboard.selected[index] = id;
       }
     } else {
-      keyboard.prevIndex = false;
+      keyboard.modifiers = { current: index, prev: false };
+      keyboard.selected = event.metaKey ? keyboard.selected : {};
+      if ( !previousSelection ) {
+        keyboard.selected[index] = id;
+      } else if ( event.metaKey ) {
+        keyboard.selected[index] = false;
+      }
     }
   };
 
-  keyboard.selectRange = function(arr, from, to) {
-    if ( to < from ) {
-      from = to;
-      to = from;
+  keyboard.selectRange = function(arr) {
+    var from = keyboard.modifiers.prev,
+      to = keyboard.modifiers.current;
+
+    for ( var i = (from < to ? from : to); i < (to > from ? to+1 : from); i++ ) {
+      keyboard.selected[i] = arr[i].id;
     }
-    for ( var i = from; i < to; i++ ) {
-      if ( arr[i] ) { 
-        arr[i].selected = true;
-      }
-    }
-    return arr;
   };
 
   return keyboard;
