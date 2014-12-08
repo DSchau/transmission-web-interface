@@ -1,0 +1,20 @@
+$button-font-size: 0.8rem !default;
+$button-active-bg-color: if($dark-theme, $focus-border-color, darken(#FFF, 15%)) !default;
+$button-active-color: #444 !default;
+$button-border-color: if($dark-theme, darken(#FFF, 15%), lighten(#000, 15%)) !default;
+$button-border-radius: 0.2rem !default;
+
+.button, button {
+  padding: 0.225rem;
+  border: 1px solid $button-border-color;
+  text-align: center;
+  font-size: $button-font-size;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  &.active {
+    background-color: $button-active-bg-color;
+    border-color: if($dark-theme, lighten($focus-border-color, 20%), darken($button-active-bg-color, 15%));
+    color: $button-active-color;
+    font-weight: bold;
+  }
+}

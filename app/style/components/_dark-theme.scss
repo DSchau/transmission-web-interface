@@ -5,6 +5,9 @@
   $header-color: darken(#FFF, 35%);
   $header-opacity: 0.925;
 
+  /* BUTTONS */
+  $button-active-color: #FFF;
+
   /* TORRENTS */
   $torrent-bg-color: lighten(#000, 15%);
   $torrent-border-color: darken($torrent-bg-color, 5%);
