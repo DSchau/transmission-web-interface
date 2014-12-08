@@ -29,7 +29,9 @@ angular.module('transmission.common.directives.keyEvent', [
     },
     68: function selectNone(event) {
       if ( event.metaKey ) {
-        torrents.selected = {};
+        for ( var torrent in torrents.selected ) {
+          delete torrents.selected[torrent];
+        } /* Would've rather just set to an empty object, but doesn't trigger watch */
       }
     }
   };
