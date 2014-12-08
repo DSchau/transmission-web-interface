@@ -6,8 +6,9 @@
 
 ### Features
 
-- [ ] Integrate with transmission-rpc REST API
+- [x] Integrate with transmission-rpc REST API
  * Use an angular factory to do this (already started)
+ - This is *technically* done, but I'd like to use `$resource` more cleanly (e.g. integrate transmissionAPI directly as "defaults" into the $resource object
  - This is somewhat started; some stuff works (pulling all torrents, for instance)
 - [x] Fix keyboard service; get working with `Command`, `Ctrl`, & `Shift`
 - [ ] Think of a better UI for specific torrent info (modal isn't best!)

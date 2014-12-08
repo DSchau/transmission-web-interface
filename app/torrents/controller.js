@@ -1,14 +1,10 @@
 angular.module('transmission.torrents')
-.controller('TorrentsCtrl', function(torrents, keyboard) {
-  this.torrentList = torrents;
-  this.selectedTorrents = {};
+.controller('TorrentsCtrl', function(list, torrents, keyboard) {
+  torrents.list = this.list = list;
+  torrents.selected = this.selectedTorrents = {};
 
   this.selectTorrent = function(torrent, index, event, torrentsArr) {
-    keyboard.multiSelect(torrent, index, event, torrentsArr);
-    this.selectedTorrents = keyboard.selected;
-  };
-
-  this.keyPress = function(event) {
-    console.log(event);
+    keyboard.select(torrent, index, event, torrentsArr);
+    torrents.selected = this.selectedTorrents = keyboard.selected;
   };
 });

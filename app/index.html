@@ -29,22 +29,24 @@
   <nav headroom classes="app.navClasses" class="noselect">
   	<ul>
   		<li class="left"><a class="icon new" title="Open Torrent"></a></li>
-      <li class="centered"><a class="icon resume" title="Resume Torrent(s)" ng-click="app.resume();"></a></li>
-      <li class="centered"><a class="icon pause" title="Pause Torrent(s)" ng-click="app.pause();"></a></li>
-      <li class="centered"><a class="icon remove" title="Remove Torrent(s)" ng-click="app.remove();"></a></li>
+      <li class="centered"><a class="icon resume" title="Resume Torrent(s)" ng-click="app.action('start');"></a></li>
+      <li class="centered"><a class="icon pause" title="Pause Torrent(s)" ng-click="app.action('pause');"></a></li>
+      <li class="centered"><a class="icon remove" title="Remove Torrent(s)" ng-click="app.action('remove');"></a></li>
       <li class="right"><a class="icon search" title="Filter Torrents" ng-click="app.showFilter = !app.showFilter;" ng-class="{ 'active': app.showFilter }"></a></li>
   	</ul>
     <div class="filter row" ng-class="{'show-filter': app.showFilter}">
-      <div class="small-4 medium-5 column cell">
-        <select ng-model="app.filter.status" ng-options="status for status in app.statuses" ng-init="app.filter.status = app.statuses[0]" tabindex="1"></select>
+      <div class="medium-8 medium-centered large-7 column cell">
+        <div class="button-group">
+          <a class="button" ng-repeat="status in app.statuses" ng-bind="status" ng-class="{ active: app.status === status }" ng-click="app.status = status;"></a>
+        </div>
       </div>
-      <div class="small-8 medium-7 column cell">
+      <div class="large-5 column cell">
         <input type="text" ng-model="app.filter.name" placeholder="Filter name..." tabindex="2" autocomplete="off" has-focus="app.showFilter">
       </div>
     </div>
   </nav>
 
-  <div id="content" class="container" ng-class="{ 'has-filter': app.showFilter }">
+  <div class="container" ng-class="{ 'has-filter': app.showFilter }">
     <div class="row">
       <div ng-view>
       </div>

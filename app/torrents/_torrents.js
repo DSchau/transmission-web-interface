@@ -8,7 +8,7 @@ angular.module('transmission.torrents', [
     templateUrl: 'torrents/torrents.tpl.html',
     controller: 'TorrentsCtrl as torrents',
     resolve: {
-      torrents: function(transmissionRPC, transmissionAPI) {
+      list: function(transmissionRPC, transmissionAPI) {
         return transmissionRPC.torrents(transmissionAPI.get);
       }
     }

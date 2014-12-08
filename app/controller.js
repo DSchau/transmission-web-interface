@@ -9,20 +9,28 @@ angular.module('transmission')
 .constant('STATUSES', [
   'All',
   'Active',
-  'Downloading',
-  'Seeding',
-  'Paused',
-  'Finished'
+  'DL',
+  'UL',
+  'Paused'
 ])
-.controller('AppCtrl', function(transmissionRPC, transmissionAPI, NAV_CLASSES, STATUSES) {
+.value('getIds', function(selected) {
+  return Object.keys(selected).map(function(id) {
+    return parseInt(id, 10);
+  });
+})
+.controller('AppCtrl', function(torrents, getIds, transmissionRPC, transmissionAPI, NAV_CLASSES, STATUSES) {
+  this.torrents = torrents.list;
+  this.selectedTorrents = torrents.selected;
+
 	this.navClasses = NAV_CLASSES;
   this.statuses = STATUSES;
+  this.status = this.statuses[0];
 
   this.showFilter = false;
 
-  this.statistics = transmissionRPC.stats(transmissionAPI.stats);
+  this.statistics = transmissionRPC.stats();
 
-  this.pause = function() {
-    console.log('pausing torrent!');
+  this.action = function(action) {
+    this[action + 'Result'] = transmissionRPC.action(transmissionAPI[action](getIds(torrents.selected)));
   };
 });

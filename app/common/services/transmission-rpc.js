@@ -1,13 +1,10 @@
-angular.module('transmission.common.services.transmission', [
+angular.module('transmission.common.services.transmissionRPC', [
   'ngResource',
+  'transmission.common.services.transmissionAPI',
   'transmission.common.constants.transmission'
 ])
-.factory('transmissionRPC', function($resource, RPC_URL) {
-  return $resource(RPC_URL, {}, {
-    init: {
-      method: 'POST',
-      isArray: false
-    },
+.factory('transmissionRPC', function($resource, RPC_URL, transmissionAPI) {
+  var RPC = new $resource(RPC_URL, {}, {
     torrents: {
       method: 'POST',
       isArray: false,
@@ -24,6 +21,12 @@ angular.module('transmission.common.services.transmission', [
         var json = angular.fromJson(data);
         return json.arguments;
       }
+    },
+    action: {
+      method: 'POST',
+      isArray: false
     }
   });
+
+  return RPC;
 });

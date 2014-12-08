@@ -7,8 +7,10 @@ angular.module('transmission.common.filters.humanize', [])
         return duration.humanize();
       } else if ( duration.hours() > 1 ) {
         return duration.hours() + ' hours, ' + duration.minutes() + ' minutes remaining';
-      } else {
+      } else if ( duration.minutes() > 1 ) {
         return duration.minutes() + ' minutes remaining';
+      } else {
+        return input > 0 ? duration.seconds() + ' seconds remaining' : 'Remaining time unknown';
       }
     }
   };
