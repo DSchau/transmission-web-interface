@@ -1,11 +1,6 @@
 /* App */
-@import "global",
-        "dark",
-        "main",
-        "nav",
-        "footer",
-		    "grid",
-		    "icons";
+@import "global/global",
+        "components/main";
 
 /* Modules */
 @import "../torrents/torrents",

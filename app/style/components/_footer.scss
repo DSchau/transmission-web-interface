@@ -15,6 +15,10 @@ footer {
     margin: 0;
     line-height: $footer-height;
     font-weight: normal;
+    &.statistics {
+      text-align: right;
+      padding-right: 0.5rem;
+    }
   }
   .column {
     padding-left: 0;
