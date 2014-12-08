@@ -11,6 +11,12 @@
  - This is *technically* done, but I'd like to use `$resource` more cleanly (e.g. integrate transmissionAPI directly as "defaults" into the $resource object
  - This is somewhat started; some stuff works (pulling all torrents, for instance)
 - [x] Fix keyboard service; get working with `Command`, `Ctrl`, & `Shift`
+- [ ] Get filtering styling nailed down
+- [ ] Get "select all"/"select none" working when filtered
+ - e.g. if filtering list and "Command + A" is pressed, selects whole list; not filtered list
+- [ ] Get filtering by type (all, seeding, downloading, etc.) working
+- [ ] Add settings view
+ - Use `angular-cookies` as basis
 - [ ] Think of a better UI for specific torrent info (modal isn't best!)
  - # of transfers
  - DL/UL status
