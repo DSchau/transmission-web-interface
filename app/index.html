@@ -2,12 +2,14 @@
 <html>
 <head>
   <title>Transmission Web Client</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Transmission">
 	<meta charset="utf-8">
   <link href="app/app.scss" type="text/css" rel="stylesheet/scss">
 </head>
 <!-- <body ng-controller="AppCtrl as app"> -->
-<body ng-controller="AppCtrl as app" class="dark">
+<body ng-controller="AppCtrl as app" class="dark" key-event="keydown">
 
   <!-- Livereload script for development only (stripped during dist build) -->
   <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
@@ -20,6 +22,7 @@
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="bower_components/angular-deferred-bootstrap/angular-deferred-bootstrap.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
   <!-- Add New Bower Component JS Above -->
 
@@ -32,14 +35,11 @@
       <li class="right"><a class="icon search" title="Filter Torrents" ng-click="app.showFilter = !app.showFilter;" ng-class="{ 'active': app.showFilter }"></a></li>
   	</ul>
     <div class="filter row" ng-class="{'show-filter': app.showFilter}">
-      <div class="small-6 medium-4 column cell">
+      <div class="small-4 medium-5 column cell">
         <select ng-model="app.filter.status" ng-options="status for status in app.statuses" ng-init="app.filter.status = app.statuses[0]" tabindex="1"></select>
       </div>
-      <div class="small-6 medium-4 column cell no-pad">
-        <h6><span class="icon download"></span><span ng-bind="app.statistics.downloadSpeed | bytes:true"></span> <span class="icon upload"></span> <span ng-bind="app.statistics.uploadSpeed | bytes:true"></span></h6>
-      </div>
-      <div class="medium-4 column cell">
-        <input type="text" ng-model="app.filter.name" placeholder="Filter name..." tabindex="2" has-focus="app.showFilter">
+      <div class="small-8 medium-7 column cell">
+        <input type="text" ng-model="app.filter.name" placeholder="Filter name..." tabindex="2" autocomplete="off" has-focus="app.showFilter">
       </div>
     </div>
   </nav>
@@ -56,8 +56,13 @@
       <div class="small-4 column">
         <a class="icon settings"></a>
       </div>
-      <div class="small-4 column end">
+      <div class="small-4 column">
         <h6><strong ng-bind="app.torrents.length"></strong> transfers</h6>
+      </div>
+      <div class="small-4 column">
+        <h6 class="statistics">
+          <span class="icon download"></span><span ng-bind="app.statistics.downloadSpeed | bytes:true"></span> <span class="icon upload"></span> <span ng-bind="app.statistics.uploadSpeed | bytes:true"></span>
+        </h6>
       </div>
     </div>
   </footer>
