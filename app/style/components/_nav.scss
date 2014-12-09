@@ -6,6 +6,8 @@ $header-height: $header-height !default;
 
 $scale-factor: 0.75 !default;
 
+$header-height-mini: $header-height * $scale-factor !default;
+
 nav {
   background-color: rgba($header-bg-color, $header-opacity);
   border-bottom: 1px solid $header-border-color;
@@ -35,8 +37,15 @@ nav {
     }
   }
   .filter {
+    position: fixed;
+    top: $header-height+1;
+    width: 100%;
+    padding: 0 0.5rem;
+    display: none;
+    background-color: $header-bg-color;
+    box-sizing: border-box;
     &.show-filter {
-      max-height: $header-height * $scale-factor;
+      display: block;
       border-bottom: 1px solid darken($header-bg-color, 25%);
       .cell {
         visibility: visible;
@@ -51,13 +60,6 @@ nav {
       padding-left: 0;
       padding-right: 0;
     }
-    position: fixed;
-    top: $header-height+1;
-    width: 100%;
-    padding: 0 0.5rem;
-    max-height: 0;
-    background-color: $header-bg-color;
-    box-sizing: border-box;
     input {
       box-sizing: border-box;
       outline: none;
@@ -83,36 +85,22 @@ nav {
   }
 }
 
-.nav, .filter {
+.nav {
   transition: max-height 125ms linear;
   transform-origin: top;
 }
 
 .nav {
-  $mini-height: $header-height * $scale-factor;
   &.nav-up {
     max-height: $header-height;
   }
   &.nav-down {
-    max-height: $mini-height;
+    max-height: $header-height-mini;
     ul {
       padding-top: 0;
     }
     .icon {
       max-height: 26px;
-      &.resume {
-        position: relative;
-        top: 1px;
-      }
     }
-    .filter {
-      top: $mini-height + 1;
-    }
-    ~ .container.has-filter {
-      top: ($mini-height * 2) + 1;
-    }
-  }
-  ~ .container.has-filter {
-    top: $header-height + $mini-height;
   }
 }
