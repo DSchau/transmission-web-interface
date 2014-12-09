@@ -24,18 +24,20 @@ module.exports = function(grunt) {
       }
     }
 
+    console.log(filepath);
+
     if ( filepath.indexOf('.scss') > -1 ) {
-      tasksToRun = tasksToRun.concat(['sass', 'cssmin']);
+      tasksToRun = tasksToRun.concat(['sass', 'copy:build']);
     }
 
-    if ( filepath.indexOf('.html') > -1 ) {
-      tasksToRun = tasksToRun.concat(['ngtemplates', 'concat', 'ngAnnotate', 'uglify']);
+    if ( filepath.indexOf('.js') > -1 || filepath.indexOf('.tpl.html') > -1 ) {
+      tasksToRun = tasksToRun.concat(['ngtemplates', 'concat', 'ngAnnotate', 'copy:build']);
     }
 
     //if index.html changed, we need to reread the <script> tags so our next run of karma
     //will have the correct environment
-    if (filepath === 'index.html') {
-      tasksToRun.push('dom_munger:read');
+    if ( filepath.indexOf('index.html') > -1 ) {
+      tasksToRun.push('dom_munger:read', 'dom_munger:update');
     }
 
     grunt.config('watch.main.tasks', tasksToRun);

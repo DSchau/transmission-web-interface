@@ -18,10 +18,12 @@
     "angular-resource": "~1.3.4",
     "angular-deferred-bootstrap": "~0.1.5",
     "angular-cookies": "~1.3.5",
-    "moment": "~2.8.4"
+    "moment": "~2.8.4",
+    "lrInfiniteScroll": "~1.0.0"
   },
   "resolutions": {
     "jquery": ">= 2.1.0",
-    "angular": "1.3.5"
+    "angular": "1.3.5",
+    "angular-infinite-scroll": "4a31e6a416"
   }
 }

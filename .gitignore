@@ -4,3 +4,6 @@ dist
 .sass-cache
 bower_components
 temp
+
+*.tmp
+.*DS_Store

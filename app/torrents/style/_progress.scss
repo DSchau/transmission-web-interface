@@ -17,7 +17,7 @@ $torrent-progress-lightening: 27.5%;
 
 @import "mixins";
 
-.torrent a {
+.torrent > a {
   padding: $torrent-padding 0;
   padding-left: $torrent-padding;
   display: block;
@@ -45,7 +45,7 @@ $torrent-progress-lightening: 27.5%;
 
 $states: completed, downloading, paused, error;
 
-.torrent-list .torrent a {
+.torrent-list .torrent > a {
   &.completed {
     @if $dark-theme {
       $color: lighten($completed-bg-color, $torrent-progress-lightening);

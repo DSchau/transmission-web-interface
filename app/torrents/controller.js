@@ -5,11 +5,13 @@ angular.module('transmission.torrents')
 
   this.mostRecent = -1;
 
+  this.limit = 50;
+
   this.selectTorrent = function(torrent, index, event, torrentsArr) {
     keyboard.select(torrent, index, event, torrentsArr);
     torrents.selected = this.selectedTorrents = keyboard.selected;
     this.mostRecent = (this.mostRecent === torrent.id ) ? -1 : torrent.id;
-    if ( !torrent.trackerStats ) {
+    if ( this.mostRecent ) {
       transmissionRPC.torrents(transmissionAPI.getAdditional(torrent.id), function(data) {
         angular.extend(torrent, data.arguments.torrents[0]);
       });

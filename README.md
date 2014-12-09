@@ -44,6 +44,8 @@
 - [x] Add a "footer" with various functionality, such as:
 - [X] Add `noselect` class to navbar elements
 - [X] Get `has-focus` directive working
+- [ ] Click on footer to dismiss it
+- [ ] Get `lrInfiniteScroll` to work
 
 ### Fixes
 

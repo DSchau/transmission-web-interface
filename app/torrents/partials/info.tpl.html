@@ -9,20 +9,22 @@
     <pre ng-bind="torrent.trackerStats | json"></pre>
   </div>
   <div ng-switch-when="Files" class="files">
-    <ul>
-      <li ng-repeat="file in torrent.files | limitTo:torrent.limit" ng-init="torrent.limit = 5;">
+    <ul ng-init="torrent.limit = torrent.limit || 5;">
+      <li ng-repeat="file in torrent.files | limitTo:torrent.limit">
         <div class="name">
           <p ng-bind="file.name"></p>
         </div>
         <div class="stats">
-          <span ng-bind="file.bytesCompleted | bytes"></span> of 
-          <span ng-bind="file.length | bytes"></span>
+          <span ng-bind="file.bytesCompleted | bytes:false:true"></span> of
+          <span ng-bind="file.length | bytes:false:true"></span>
         </div>
       </li>
-      <li class="show-all" ng-show="torrent.files.length > 5" ng-click="torrent.limit = torrent.files.length">Show All Files</li>
+      <li class="has-button" ng-if="torrent.limit < torrent.files.length;">
+        <a class="button full-width" ng-click="torrent.limit = torrent.files.length;">Show All Files</a>
+      </li>
     </ul>
   </div>
   <div ng-switch-default class="info">
-    <p>Just some info, hoe!</p>
+    <pre ng-bind="torrent | json"></pre>
   </div>
 </div>

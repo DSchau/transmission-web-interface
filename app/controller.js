@@ -19,6 +19,7 @@ angular.module('transmission')
   });
 })
 .controller('AppCtrl', function(torrents, getIds, transmissionRPC, transmissionAPI, NAV_CLASSES, STATUSES) {
+  console.log('hello!');
   var self = this;
   torrents.list = this.torrents;
   torrents.selected = this.selected;

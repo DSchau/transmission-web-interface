@@ -16,11 +16,15 @@ body {
   font-weight: 300;
 }
 
+/* How the FUCK can I position it without knowing the height of the header and filter bar??? */
+
 .container {
-  position: relative;
-  top: $header-height;
+  padding-top: $header-height;
   &.has-filter {
-    top: $header-height + 1;
+    padding-top: ($header-height + 1) * 2;
+    @media #{$large-up} {
+      padding-top: 72px;
+    }
   }
 }
 

@@ -12,7 +12,7 @@ $torrent-title-font-size: $torrent-font-size * 0.8;
 $torrent-statistics-font-size: $torrent-font-size * 0.75;
 
 @import "style/progress";
-@import "style/additional-data";
+@import "style/additional-detail";
 
 .column.torrents {
   padding-right: 0;
@@ -32,8 +32,9 @@ $torrent-statistics-font-size: $torrent-font-size * 0.75;
   &:last-child {
     border-bottom-width: 0;
   }
-  a {
+  > a {
     background-color: $torrent-bg-color;
+    border-bottom: 1px solid $torrent-border-color;
     color: $torrent-color;
     &.selected {
       background-color: darken($torrent-stripe-bg-color, 15%) !important;
@@ -100,11 +101,8 @@ $torrent-statistics-font-size: $torrent-font-size * 0.75;
       }
     }
   }
-  &:nth-child(even) a {
+  &:nth-child(even) > a {
     background-color: $torrent-stripe-bg-color;
     border-color: $torrent-stripe-border-color;
-  }
-  a {
-    border-bottom: 1px solid $torrent-border-color;
   }
 }

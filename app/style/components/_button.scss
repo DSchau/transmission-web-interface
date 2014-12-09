@@ -10,11 +10,16 @@ $button-border-radius: 0.2rem !default;
   text-align: center;
   font-size: $button-font-size;
   border-radius: $button-border-radius;
+  box-sizing: border-box;
   cursor: pointer;
   &.active {
     background-color: $button-active-bg-color;
     border-color: if($dark-theme, lighten($focus-border-color, 20%), darken($button-active-bg-color, 15%));
     color: $button-active-color;
     font-weight: bold;
+  }
+  &.full-width {
+    width: 100%;
+    display: block;
   }
 }
