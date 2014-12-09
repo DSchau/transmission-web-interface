@@ -31,6 +31,7 @@
  - The animations on the navbar are nice, but could be smoother, better
 - [ ] Fix mobile filtering functionality
  - Is currently a little wacky.. explicit CSS `height` property is too small
+- [ ] Get dark and light themes looking pretty
 
 #### Needs Info
 - [ ] Integrate a modal service
