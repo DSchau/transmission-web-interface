@@ -25,6 +25,7 @@
     </ul>
   </div>
   <div ng-switch-default class="info">
+    <h3 ng-bind="torrent.addedDate | unix | format"></h3>
     <pre ng-bind="torrent | json"></pre>
   </div>
 </div>

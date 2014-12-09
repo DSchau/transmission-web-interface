@@ -12,7 +12,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
 }
 
@@ -35,4 +35,8 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+pre {
+    word-wrap: break-word;
 }
