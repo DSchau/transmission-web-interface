@@ -15,7 +15,7 @@ $torrent-progress-height: 100% !default;
 
 $torrent-progress-lightening: 27.5%;
 
-@import "torrents-mixins";
+@import "mixins";
 
 .torrent a {
   padding: $torrent-padding 0;
@@ -48,7 +48,13 @@ $states: completed, downloading, paused, error;
 .torrent-list .torrent a {
   &.completed {
     @if $dark-theme {
-      color: lighten($completed-bg-color, $torrent-progress-lightening);
+      $color: lighten($completed-bg-color, $torrent-progress-lightening);
+      color: $color;
+      .active {
+        background-color: $color;
+        border-color: lighten($color, 25%);
+        color: black;
+      }
     }
     .progress {
       background-color: $completed-bg-color;
@@ -57,7 +63,13 @@ $states: completed, downloading, paused, error;
   }
   &.downloading {
     @if $dark-theme {
-      color: lighten($downloading-bg-color, $torrent-progress-lightening);
+      $color: lighten($downloading-bg-color, $torrent-progress-lightening);
+      color: $color;
+      .active {
+        background-color: $color;
+        border-color: lighten($color, 25%);
+        color: black;
+      }
     }
     .progress {
       background-color: $downloading-bg-color;
@@ -66,7 +78,13 @@ $states: completed, downloading, paused, error;
   }
   &.paused {
     @if $dark-theme {
-      color: lighten($paused-bg-color, $torrent-progress-lightening);
+      $color: lighten($paused-bg-color, $torrent-progress-lightening);
+      color: $color;
+      .active {
+        background-color: $color;
+        border-color: lighten($color, 25%);
+        color: black;
+      }
     }
     .progress {
       background-color: $paused-bg-color;
@@ -75,7 +93,13 @@ $states: completed, downloading, paused, error;
   }
   &.error {
     @if $dark-theme {
-      color: lighten($error-bg-color, $torrent-progress-lightening);
+      $color: lighten($error-bg-color, $torrent-progress-lightening);
+      color: $color;
+      .active {
+        background-color: $color;
+        border-color: lighten($color, 25%);
+        color: black;
+      }
     }
     .progress {
       background-color: $error-bg-color;
