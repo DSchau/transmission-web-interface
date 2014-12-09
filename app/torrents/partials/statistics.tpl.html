@@ -1,0 +1,13 @@
+<span ng-switch-when="true">
+  <span ng-bind="torrent.errorString"></span>
+</span>
+<span ng-switch-default>
+  <span class="have" ng-bind="(torrent.sizeWhenDone - torrent.leftUntilDone) | bytes:false:true"></span> of 
+  <span class="total" ng-bind="::torrent.sizeWhenDone | bytes:false:true"></span>
+  <span class="percentage">
+    (<span ng-bind="torrent.percentDone * 100 | number:2"></span>%)
+  </span>
+  <span class="remaining" ng-if="torrent.percentDone < 1">
+    - <span ng-bind="torrent.eta | humanize"></span>
+  </span>
+</span>

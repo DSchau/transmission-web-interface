@@ -29,4 +29,26 @@ angular.module('transmission.common.constants.transmission', [])
   'uploadedEver',
   'uploadRatio',
   'webseedsSendingToUs'
+])
+.constant('TORRENT_FIELDS_EXTENDED', [
+  'id',
+  'activityDate',
+  'corruptEver',
+  'desiredAvailable',
+  'downloadedEver',
+  'fileStats',
+  'haveUnchecked',
+  'haveValid',
+  'peers',
+  'startDate',
+  'trackerStats',
+  'comment',
+  'creator',
+  'dateCreated',
+  'files',
+  'hashString',
+  'isPrivate',
+  'pieceCount',
+  'pieceSize'
+
 ]);

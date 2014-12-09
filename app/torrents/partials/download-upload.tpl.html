@@ -1,0 +1,8 @@
+<span class="dl" ng-if="torrent.rateDownload">
+  <span class="download icon"></span>
+  <span class="rate" ng-bind="torrent.rateDownload | bytes:true"></span>
+</span>
+<span class="ul" ng-if="torrent.status && !torrent.error">
+  <span class="upload icon"></span>
+  <span class="rate" ng-bind="torrent.rateUpload | bytes:true"></span>
+</span>

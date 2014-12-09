@@ -6,14 +6,24 @@ angular.module('transmission.common.services.transmissionAPI', [
   this.arguments = args;
 })
 .value('getTorrentArray', function(ids) {
-  return typeof ids === 'object' ? ids : [ids];
+  if ( ids ) {
+    return typeof ids === 'object' ? ids : [ids];
+  }
+  return null;
 })
-.factory('transmissionAPI', function(Method, getTorrentArray, TORRENT_FIELDS) {
+.factory('transmissionAPI', function(Method, getTorrentArray, TORRENT_FIELDS, TORRENT_FIELDS_EXTENDED) {
   var api = {};
 
   api.get = new Method('torrent-get', {
     fields: TORRENT_FIELDS
   });
+
+  api.getAdditional = function(ids) {
+    return new Method('torrent-get', {
+      ids: getTorrentArray(ids),
+      fields: TORRENT_FIELDS_EXTENDED
+    });
+  };
 
   api.add = function(args) {
     return new Method('torrent-add', args);

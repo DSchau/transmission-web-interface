@@ -3,37 +3,9 @@
     <li class="torrent" ng-repeat="torrent in ( app.torrents = (torrents.list.torrents | smartFilter:app.filter) )" ng-click="torrents.selectTorrent(torrent, $index, $event, app.torrents);">
       <a class="noselect" title="{{torrent.name}}" ng-class="{ 'selected': torrents.selectedTorrents[torrent.id], 'completed': torrent.percentDone === 1, 'downloading': torrent.percentDone < 1, 'paused': torrent.status === 0, 'error': torrent.error, 'full-width': (!torrent.rateDownload && !torrent.status) || torrent.error, 'additional-detail': torrents.mostRecent === torrent.id }">
         <strong class="title" ng-bind="::torrent.name"></strong>
-        <div class="statistics" ng-switch="torrent.error > 0">
-          <span ng-switch-when="true">
-            <span ng-bind="torrent.errorString"></span>
-          </span>
-          <span ng-switch-default>
-            <span class="have" ng-bind="(torrent.sizeWhenDone - torrent.leftUntilDone) | bytes:false:true"></span> of 
-            <span class="total" ng-bind="::torrent.sizeWhenDone | bytes:false:true"></span>
-            <span class="percentage">
-              (<span ng-bind="torrent.percentDone * 100 | number:2"></span>%)
-            </span>
-            <span class="remaining" ng-if="torrent.percentDone < 1">
-              - <span ng-bind="torrent.eta | humanize"></span>
-            </span>
-          </span>
-        </div>
-        <div class="download-upload">
-          <span class="dl" ng-if="torrent.rateDownload">
-            <span class="download icon"></span>
-            <span class="rate" ng-bind="torrent.rateDownload | bytes:true"></span>
-          </span>
-          <span class="ul" ng-if="torrent.status && !torrent.error">
-            <span class="upload icon"></span>
-            <span class="rate" ng-bind="torrent.rateUpload | bytes:true"></span>
-          </span>
-        </div>
-        <div class="additional-detail" ng-if="torrents.mostRecent === torrent.id">
-          <div class="button-group">
-            <span class="button" ng-repeat="category in ['Info', 'Peers', 'Tracker', 'Pieces']" ng-bind="category"></span>
-          </div>
-          <span class="icon chevron up"></span>
-        </div>
+        <div class="statistics" ng-switch="torrent.error > 0" ng-include="'torrents/partials/statistics.tpl.html'"></div>
+        <div class="download-upload" ng-include="'torrents/partials/download-upload.tpl.html'"></div>
+        <div class="additional-detail" ng-if="torrents.mostRecent === torrent.id" ng-include="'torrents/partials/additional-detail.tpl.html'"></div>
         <div class="progress" ng-style="{ width: ( torrent.percentDone * 100) + '%' }"></div>
       </a>
     </li>

@@ -1,0 +1,28 @@
+<div ng-switch="torrent.category">
+  <div ng-switch-when="Peers" class="peers">
+    <ul ng-switch="torrent.peers && torrent.peers.length > 0">
+      <li ng-switch-when="true" ng-repeat="peer in torrent.peers" ng-bind="peer"></li>
+      <li ng-switch-default>0 connected peers</li>
+    </ul>
+  </div>
+  <div ng-switch-when="Tracker" class="tracker">
+    <pre ng-bind="torrent.trackerStats | json"></pre>
+  </div>
+  <div ng-switch-when="Files" class="files">
+    <ul>
+      <li ng-repeat="file in torrent.files | limitTo:torrent.limit" ng-init="torrent.limit = 5;">
+        <div class="name">
+          <p ng-bind="file.name"></p>
+        </div>
+        <div class="stats">
+          <span ng-bind="file.bytesCompleted | bytes"></span> of 
+          <span ng-bind="file.length | bytes"></span>
+        </div>
+      </li>
+      <li class="show-all" ng-show="torrent.files.length > 5" ng-click="torrent.limit = torrent.files.length">Show All Files</li>
+    </ul>
+  </div>
+  <div ng-switch-default class="info">
+    <p>Just some info, hoe!</p>
+  </div>
+</div>

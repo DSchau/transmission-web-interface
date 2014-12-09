@@ -1,0 +1,7 @@
+<div ng-click="$event.stopPropagation();">
+  <div class="button-group">
+    <span class="button" ng-repeat="category in ['Info', 'Peers', 'Tracker', 'Files']" ng-bind="category" ng-click="torrents.showCategory($event, category, torrent);" ng-class="{ active: torrent.category === category || !torrent.category && category === 'Info' }"></span>
+  </div>
+  <div class="info" ng-include="'torrents/partials/info.tpl.html'"></div>
+</div>
+<span class="icon chevron up"></span>
