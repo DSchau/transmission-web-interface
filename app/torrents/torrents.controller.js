@@ -22,4 +22,8 @@ angular.module('transmission.torrents')
     event.stopPropagation();
     torrent.category = category;
   };
+
+  this.loadMore = function() {
+    console.log('loading more..');
+  };
 });
