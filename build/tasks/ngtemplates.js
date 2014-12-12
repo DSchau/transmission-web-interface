@@ -23,7 +23,7 @@ var createFolderGlobs = function(fileTypePatterns) {
 module.exports = {
   main: {
     options: {
-        module: '<%= package.name %>',
+        module: 'transmission',
         htmlmin:'<%= htmlmin.main.options %>'
     },
     cwd: '<%= app %>',

@@ -29,7 +29,7 @@ window.deferredBootstrapper.bootstrap({
         $http.post('/transmission/rpc')
           .error(error);
       }
-      
+
       return defer.promise;
     }],
     PREFS: ['$q', '$cookieStore', function($q, $cookieStore) {
@@ -44,9 +44,10 @@ angular.module('transmission', [
   'ngRoute',
   'ngCookies',
   'headroom',
+  'lrInfiniteScroll',
+  'transmission.common',
   'transmission.torrents',
-  'transmission.settings',
-  'transmission.common'
+  'transmission.settings'
 ])
 .config(function($routeProvider, $httpProvider, SESSION_ID) {
   $httpProvider.defaults.headers.common['X-Transmission-Session-Id'] = SESSION_ID;

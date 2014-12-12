@@ -1,8 +1,6 @@
 angular.module('transmission.torrents', [
   'transmission.torrents.filters',
-  'transmission.torrents.services',
-  'transmission.common.services',
-  'transmission.common.directives.infiniteScroll'
+  'transmission.torrents.services'
 ])
 .config(function($routeProvider) {
   $routeProvider.when('/torrents', {
