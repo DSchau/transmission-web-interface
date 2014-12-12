@@ -1,7 +1,7 @@
 {
-  "name": "transmission",
-  "version": "1.0.0",
-  "description": "Mobile-first web interface for the Transmission Web client",
+  "name": "transmission-web-interface",
+  "version": "0.0.1",
+  "description": "Mobile-first web interface for the Transmission Web client, written in AngularJS.",
   "repository": {
     "type": "git",
     "url": "https://github.com/DSchau/transmission.git"
