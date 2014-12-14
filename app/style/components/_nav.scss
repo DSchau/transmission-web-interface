@@ -81,6 +81,11 @@ nav {
       display: block;
       line-height: 22px;
     }
+    @media #{$large-up} {
+        .button-group {
+            padding-right: 1rem;
+        }
+    }
   }
 }
 
