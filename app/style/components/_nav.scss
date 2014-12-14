@@ -38,15 +38,14 @@ nav {
   }
   .filter {
     position: fixed;
-    top: $header-height+1;
     width: 100%;
     padding: 0 0.5rem;
     display: none;
     background-color: $header-bg-color;
+    border-bottom: 1px solid $header-border-color;
     box-sizing: border-box;
     &.show-filter {
       display: block;
-      border-bottom: 1px solid darken($header-bg-color, 25%);
       .cell {
         visibility: visible;
         padding: 0.25rem 0;

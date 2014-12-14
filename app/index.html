@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Transmission">
-	<meta charset="utf-8">
+  <meta charset="utf-8">
   <link href="app/app.scss" type="text/css" rel="stylesheet/scss">
 </head>
 <!-- <body ng-controller="AppCtrl as app"> -->
@@ -37,14 +37,14 @@
       <li class="centered"><a class="icon remove" title="Remove Torrent(s)" ng-click="app.action('remove');"></a></li>
       <li class="right"><a class="icon search" title="Filter Torrents" ng-click="app.showFilter = !app.showFilter;" ng-class="{ 'active': app.showFilter }"></a></li>
   	</ul>
-    <div class="filter row" ng-class="{'show-filter': app.showFilter}">
+    <div class="filter row" ng-class="{ 'show-filter': app.showFilter }">
       <div class="medium-8 large-7 medium-centered large-uncentered column cell">
         <div class="button-group">
-          <a class="button" ng-repeat="status in app.statuses" ng-bind="status" ng-class="{ active: app.status === status }" ng-click="app.status = status;"></a>
+          <a class="button" ng-repeat="status in app.statuses" ng-bind="status.label" ng-class="{ active: status.active }" ng-click="app.setStatus(status);"></a>
         </div>
       </div>
       <div class="large-5 column cell">
-        <input type="text" ng-model="app.filter.name" placeholder="Filter name..." tabindex="2" autocomplete="off" has-focus="app.showFilter">
+        <input type="text" ng-model="app.filter.name" placeholder="Filter name..." tabindex="2" autocomplete="off" autocorrect="off" has-focus="app.showFilter">
       </div>
     </div>
   </nav>

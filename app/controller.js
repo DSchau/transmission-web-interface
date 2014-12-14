@@ -7,11 +7,27 @@ angular.module('transmission')
   notTop : "nav-below"
 })
 .constant('STATUSES', [
-  'All',
-  'Active',
-  'DL',
-  'UL',
-  'Paused'
+  {
+    label: 'All',
+    value: '',
+    active: true
+  },
+  {
+    label: 'Active',
+    value: '1'
+  },
+  {
+    label: 'DL',
+    value: '2'
+  },
+  {
+    label: 'UL',
+    value: '6'
+  },
+  {
+    label: 'Paused',
+    value: '0'
+  }
 ])
 .value('getIds', function(selected) {
   return Object.keys(selected).map(function(id) {
@@ -24,10 +40,10 @@ angular.module('transmission')
   torrents.selected = this.selected;
 
   this.alerts = [];
+  this.filter = {};
 
 	this.navClasses = NAV_CLASSES;
   this.statuses = STATUSES;
-  this.status = this.statuses[0];
 
   this.showFilter = false;
 
@@ -43,5 +59,18 @@ angular.module('transmission')
         message: success ? 'torrent(s) ' + message : 'Torrent(s) failed to ' + message.replace(/d!$/, '!')
       });
     });
+  };
+
+  this.setStatus = function(status) {
+    if ( status.label === 'Active' ) {
+      delete this.filter.status;
+      this.filter.isStalled = false;
+    } else {
+      this.filter.status = status.value;
+    }
+    this.statuses.forEach(function(status) {
+      status.active = false;
+    });
+    status.active = true;
   };
 });

@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     }
 
     if ( filepath.indexOf('.scss') > -1 ) {
-      tasksToRun = tasksToRun.concat(['sass', 'copy:build']);
+      tasksToRun = tasksToRun.concat(['sass', 'autoprefixer', 'copy:build']);
     }
 
     if ( filepath.indexOf('.js') > -1 || filepath.indexOf('.tpl.html') > -1 ) {
