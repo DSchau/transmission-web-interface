@@ -5,8 +5,6 @@ angular.module('transmission.torrents.filters.smartFilter', [])
       var expressions = {},
         filteredArr = [];
 
-      console.log(filter);
-
       Object.keys(filter).forEach(function(prop) {
         if ( filter[prop] !== 'All' ) {
           expressions[prop] = new RegExp(filter[prop].replace(/(\s|-|\.)/g, '\\W'), 'i');

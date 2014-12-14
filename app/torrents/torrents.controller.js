@@ -8,6 +8,7 @@ angular.module('transmission.torrents')
   this.limit = 50;
 
   this.selectTorrent = function(torrent, index, event, torrentsArr) {
+    this.extraInfo = false;
     keyboard.select(torrent, index, event, torrentsArr);
     torrents.selected = this.selectedTorrents = keyboard.selected;
     this.mostRecent = (this.mostRecent === torrent.id ) ? -1 : torrent.id;
@@ -25,5 +26,9 @@ angular.module('transmission.torrents')
 
   this.loadMore = function() {
     console.log('loading more..');
+  };
+
+  this.doubleClick = function(torrent) {
+    this.extraInfo = torrent.id;
   };
 });
