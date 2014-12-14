@@ -6,7 +6,12 @@ angular.module('transmission.common.directives.alert', [])
       type: '=',
       message: '='
     },
-    templateUrl: 'common/directives/alert/alert.tpl.html'
+    templateUrl: 'common/directives/alert/alert.tpl.html',
+    link: function(scope, element) {
+      scope.close = function() {
+        element.remove();
+      };
+    }
   };
 })
 .directive('alerts', function($timeout) {
@@ -17,15 +22,15 @@ angular.module('transmission.common.directives.alert', [])
     },
     templateUrl: 'common/directives/alert/alerts.tpl.html',
     link: function(scope, element) {
-      scope.$watch('array', function() {
-        if ( scope.array && scope.array.length > 0 ) {
-          var lastIndex = scope.array.length-1;
+      scope.$watch('array', function(array) {
+        if ( array && array.length > 0 ) {
+          var lastIndex = array.length-1;
           $timeout(function() {
-            scope.array.splice(lastIndex, 1);
+            array.splice(lastIndex, 1);
             scope.$apply();
-          }, scope.array[lastIndex] || 5000);
+          }, scope.array[lastIndex].timeout || 5000);
         }
-      });
+      }, true);
     }
   };
 });
