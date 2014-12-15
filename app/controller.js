@@ -4,7 +4,24 @@ angular.module('transmission')
     return parseInt(id, 10);
   });
 })
-.controller('AppCtrl', function(torrents, getIds, transmissionRPC, transmissionAPI, NAV_CLASSES, STATUSES) {
+.value('performAction', function(torrents, id, action) {
+  console.log(torrents, id, action);
+  var actionMap = {
+    remove: function() {
+      delete torrents[id];
+    },
+    pause: function() {
+      torrents[id].status = 0;
+    },
+    start: function() {
+      torrents[id].status = 6;
+    }
+  };
+  return (function() {
+    return actionMap[action]();
+  })();
+})
+.controller('AppCtrl', function(torrents, getIds, transmissionRPC, transmissionAPI, NAV_CLASSES, STATUSES, performAction) {
   var self = this;
   torrents.list = this.torrents;
   torrents.selected = this.selected;
@@ -20,8 +37,14 @@ angular.module('transmission')
   this.statistics = transmissionRPC.stats(transmissionAPI.stats);
 
   this.action = function(action) {
-    transmissionRPC.action(transmissionAPI[action](getIds(torrents.selected)), function(result) {
+    var ids = getIds(torrents.selected);
+    transmissionRPC.action(transmissionAPI[action](ids), function(result) {
       var success = result.result === 'success';
+      if ( success ) {
+        ids.forEach(function(id) {
+          performAction(self.torrents, id, action);
+        });
+      }
       var message = action + (action[action.length-1] === 'e' ? 'd!' : 'ed!');
       self.alerts.push({
         type: success ? 'success' : 'error',
