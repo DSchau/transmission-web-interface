@@ -3,14 +3,24 @@ angular.module('transmission.common.services.transmissionRPC', [
   'transmission.common.services.transmissionAPI',
   'transmission.common.constants.transmission'
 ])
-.factory('transmissionRPC', function($resource, RPC_URL, transmissionAPI) {
+.value('transformToObject', function(arr) {
+  var torrents = {};
+  if ( arr && arr.length ) {
+    for ( var i = 0; i < arr.length; i++ ) {
+      var torrent = arr[i];
+      torrents[torrent.id] = torrent;
+    }
+  }
+  return torrents;
+})
+.factory('transmissionRPC', function($resource, RPC_URL, transmissionAPI, transformToObject) {
   var RPC = new $resource(RPC_URL, {}, {
     torrents: {
       method: 'POST',
       isArray: false,
       transformResponse: function(data) {
         var json = angular.fromJson(data);
-        json.torrents = (json.arguments||{}).torrents;
+        json.torrents = transformToObject(((json.arguments||{}).torrents)||[]);
         return json;
       }
     },

@@ -16,7 +16,9 @@ window.deferredBootstrapper.bootstrap({
       var error = function(data, status, headers) {
         var headerObj = headers(),
           id = headerObj[token.toLowerCase()];
-        $cookieStore.put(token, id);
+        if ( id ) {
+          $cookieStore.put(token, id);
+        }
         defer.resolve(id);
       };
 

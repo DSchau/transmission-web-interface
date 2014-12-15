@@ -1,5 +1,7 @@
 angular.module('transmission.torrents')
-.controller('TorrentsCtrl', function(list, torrents, transmissionRPC, transmissionAPI, keyboard) {
+.controller('TorrentsCtrl', function($interval, list, torrents, transmissionRPC, transmissionAPI, keyboard) {
+  var self = this;
+
   torrents.list = this.list = list;
   torrents.selected = this.selectedTorrents = {};
 
@@ -31,4 +33,10 @@ angular.module('transmission.torrents')
   this.doubleClick = function(torrent) {
     this.extraInfo = torrent.id;
   };
+
+  this.recentTorrents = $interval(function() {
+    transmissionRPC.torrents(transmissionAPI.getRecent, function(response) {
+      console.log(response);
+    });
+  }, 5000);
 });

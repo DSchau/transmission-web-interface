@@ -18,6 +18,11 @@ angular.module('transmission.common.services.transmissionAPI', [
     fields: TORRENT_FIELDS
   });
 
+  api.getRecent = new Method('torrent-get', {
+    fields: TORRENT_FIELDS,
+    ids: 'recently-active'
+  });
+
   api.getAdditional = function(ids) {
     return new Method('torrent-get', {
       ids: getTorrentArray(ids),
